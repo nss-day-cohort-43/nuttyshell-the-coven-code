@@ -1,0 +1,20 @@
+.border {
+    background-color: cornsilk;
+    margin: .5em;
+    height: 200px;
+    width: 200px;
+}
+
+.columns {
+    display: flex;
+    justify-content: center;
+}
+
+.auth--header {
+    display: flex;
+    justify-content: center;
+}
+
+.auth {
+    display: none;
+}
