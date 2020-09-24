@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>The Coven Code</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles/main.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <article class="container">
-        <article class="auth">
-            <section class="auth--login"></section>
-            <section class="auth--register"></section>
-        </article>
-        <article class="dashboard">
-            <!-- All your Nutshell are belong here -->
-        </article>
-    </article>
+  <body>
+    <main class="container">
+      <article class="auth">
+        <header class="auth--header"></header>
+        <section class="auth--login"></section>
+        <section class="auth--register"></section>
+      </article>
+      <article class="dashboard">
+        <header class="dash--header"></header>
+        <section class="tasks"></section>
+        <section class="events"></section>
+        <section class="news"></section>
+        <section class="posts"></section>
+        <section class="friends"></section>
+      </article>
+      <footer>©2020 Nutshell brought to you by The Coven Code</footer>
+    </main>
 
     <script src="./scripts/main.js" type="module"></script>
-
-</body>
+  </body>
 </html>
