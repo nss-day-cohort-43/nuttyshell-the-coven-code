@@ -1,0 +1,47 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-areas: 
+        "header header header"
+        "tasks events news"
+        "tasks events news"
+        "posts posts friends"
+        "posts posts friends";
+}
+
+.dash--header {
+    grid-area: header;
+    background-color: cornsilk;
+    margin: .5em;
+}
+
+.tasks {
+    grid-area: tasks;
+    background-color: cornsilk;
+    margin: .5em;
+} 
+
+.events {
+    grid-area: events;
+    background-color: cornsilk;
+    margin: .5em;
+}
+
+.news {
+    grid-area: news;
+    background-color: cornsilk;
+    margin: .5em;
+}
+
+.posts {
+    grid-area: posts;
+    background-color: cornsilk;
+    margin: .5em;
+}
+
+.friends {
+    grid-area: friends;
+    background-color: cornsilk;
+    margin: .5em;
+}
