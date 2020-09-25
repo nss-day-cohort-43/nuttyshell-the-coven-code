@@ -17,7 +17,27 @@ const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
+        // When users clicks Post, save entered data
+            // If no data entered, do not post
+            // Need to save
+                // userID
+                // timeStamp
+                // Message
+                // messageID is auto generated
         console.log("CLICKED POST")
+
+        const postMessage = document.querySelector("#newPost")
+
+        if (postMessage.value !== "") {
+            const newPost = {
+                post: postMessage.value,
+                currentTimeStamp: Date.now(),
+                // PULL USERID FROM SESSION STORAGE
+                userId: 1
+            }
+
+            // savePost function runs here
+        }
     }
     if (e.target.id.startsWith("post__btnEdit--")) {
         const [prefix, id] = e.target.id.split("--")
@@ -29,7 +49,7 @@ eventHub.addEventListener("click", e => {
     }
 })
 
-// list entire posts dashboard item on DOM
+// List entire posts dashboard item on DOM
 export const listPosts = () => {
     getPosts()
     .then(() => {
