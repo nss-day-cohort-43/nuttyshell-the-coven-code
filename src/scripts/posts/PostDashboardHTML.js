@@ -7,7 +7,7 @@ export const PostDashboardHTML = (postArray) => {
             ${
                 postArray.map(post => {
                     return `
-                    <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${post.currentTimeStamp}</span> <span class="single__post">${post.post}</span> <span>EDIT BTN</span> <span>DELETE BTN</span></p>
+                    <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${post.currentTimeStamp}</span> <span class="single__post">${post.post}</span> <button id="post__btnEdit" type="button">EDIT BTN</button> <button id="post__btnDelete" type="button">DELETE BTN</button></p>
                     
                     `
                 }).join("")
@@ -16,7 +16,7 @@ export const PostDashboardHTML = (postArray) => {
         <form method="post" class="post__new">
             <label class="new__label" for="newPost">Create new post</label>
             <textarea class="new__textarea" name="newPost" id="newPost" rows="2"></textarea>
-            <button class="new__btn-post" type="button">Post</button>
+            <button id="post__btnPost" class="new__btn-post" type="button">Post</button>
         </form>
     `
 }

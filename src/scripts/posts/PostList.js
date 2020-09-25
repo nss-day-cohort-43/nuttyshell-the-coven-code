@@ -5,12 +5,28 @@
 
 // Requirements:
     // create posts
-    // Posts must be prepended with user's name (and a timestamp)
-    // sort posts so the most recent is at bottom
+    // DONE -- Posts must be prepended with user's name (and a timestamp)
+    // DONE -- sort posts so the most recent is at bottom
     // Delete posts
 
 import { getPosts, usePosts } from "./PostProvider.js"
 import { PostDashboardHTML } from "./PostDashboardHTML.js"
+
+const eventHub = document.querySelector(".posts")
+
+eventHub.addEventListener("click", e => {
+    switch(e.target.id) {
+        case "post__btnPost":
+            console.log("CLICKED POST")
+            break;
+        case "post__btnEdit":
+            console.log("CLICKED EDIT")
+            break;
+        case "post__btnDelete":
+            console.log("CLICKED DELETE")
+            break;
+    }
+})
 
 export const listPosts = () => {
     getPosts()
@@ -22,8 +38,6 @@ export const listPosts = () => {
 }
 
 // Render entire post section
-    // Takes a posts array of all current posts
-    // and displays all those posts
 const renderPostDashboard = (sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
     targetElement.innerHTML = PostDashboardHTML(sortedPostArray);
