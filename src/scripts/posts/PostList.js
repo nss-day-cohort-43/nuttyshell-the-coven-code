@@ -40,7 +40,7 @@ eventHub.addEventListener("click", e => {
             const newPost = {
                 post: postMessage.value,
                 currentTimeStamp: Date.now(),
-                userId: sessionStorage.getItem("userId")
+                userId: parseInt(sessionStorage.getItem("activeUser"))
             }
             console.log(newPost)
             savePost(newPost)

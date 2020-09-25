@@ -7,7 +7,7 @@ export const postBoxHTML = (postArray) => {
             ${
                 postArray.map(post => {
                     return `
-                    <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleDateString("en-US")}</span> <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button> <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button></p>
+                    <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleTimeString("en-US")}</span> <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button> <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button></p>
                     `
                 }).join("")
             }
