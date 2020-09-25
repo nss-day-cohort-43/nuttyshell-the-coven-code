@@ -10,18 +10,26 @@
     // Delete posts
 
 import { getPosts, usePosts } from "./PostProvider.js"
+import { PostDashboardHTML } from "./PostDashboardHTML.js"
 
 export const listPosts = () => {
     getPosts()
     .then(() => {
         const posts = usePosts()
-        console.log(posts)
+        sortPosts(posts)
+        renderPostDashboard();
     })
 }
 
 // Render entire post section
     // Takes a posts array of all current posts
     // and displays all those posts
-const renderPostDashboard = (postsArray) => {
+const renderPostDashboard = (sortedPostArray) => {
+    const targetElement = document.querySelector(".posts")
+    targetElement.innerHTML = PostDashboardHTML(sortedPostArray);
+}
 
+// Sort posts for most recent at bottom
+const sortPosts = (postArray) => {
+    return postArray.sort((post1, post2) => post1 - post2)
 }

@@ -10,9 +10,9 @@ let posts = []
 
 // need a dispatch for when posts change
 
-// Fetch posts from database
+// Fetch posts from database with user info included
 export const getPosts = () => {
-    return fetch ('http://localhost:8088/posts')
+    return fetch ('http://localhost:8088/posts?_expand=user')
         .then(response => response.json())
         .then(parsedPosts => {
             posts = parsedPosts
