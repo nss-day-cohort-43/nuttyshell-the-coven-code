@@ -10,9 +10,10 @@
     // Delete posts
 
 import { getPosts, usePosts } from "./PostProvider.js"
-import { PostDashboardHTML } from "./PostDashboardHTML.js"
+import { postBoxHTML } from "./PostBoxHTML.js"
+import { newPostHTML } from "./PostNewHTML.js"
 
-const eventHub = document.querySelector(".posts")
+const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", e => {
     switch(e.target.id) {
@@ -28,6 +29,7 @@ eventHub.addEventListener("click", e => {
     }
 })
 
+// list entire posts dashboard item on DOM
 export const listPosts = () => {
     getPosts()
     .then(() => {
@@ -40,7 +42,8 @@ export const listPosts = () => {
 // Render entire post section
 const renderPostDashboard = (sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
-    targetElement.innerHTML = PostDashboardHTML(sortedPostArray);
+    targetElement.innerHTML = postBoxHTML(sortedPostArray);
+    targetElement.innerHTML += newPostHTML();
 }
 
 // Sort posts for most recent at bottom
