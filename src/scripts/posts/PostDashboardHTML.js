@@ -7,12 +7,11 @@ export const PostDashboardHTML = (postArray) => {
             ${
                 postArray.map(post => {
                     return `
-                    <p class="post__single"><span class="single__username">$</span> <span class="single__timeStamp">TIMESTAMP</span> <span class="single__post">POST CONTENT HERE</span> <span>EDIT BTN</span> <span>DELETE BTN</span></p>
+                    <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${post.currentTimeStamp}</span> <span class="single__post">${post.post}</span> <span>EDIT BTN</span> <span>DELETE BTN</span></p>
                     
                     `
-                })
+                }).join("")
             }
-            <p class="post__single"><span class="single__username">USERNAME</span> <span class="single__timeStamp">TIMESTAMP</span> <span class="single__post">POST CONTENT HERE</span> <span>EDIT BTN</span> <span>DELETE BTN</span></p>
         </div>
         <form method="post" class="post__new">
             <label class="new__label" for="newPost">Create new post</label>

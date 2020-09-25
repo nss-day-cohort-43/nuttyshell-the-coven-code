@@ -16,8 +16,8 @@ export const listPosts = () => {
     getPosts()
     .then(() => {
         const posts = usePosts()
-        sortPosts(posts)
-        renderPostDashboard();
+        const sortedPosts = sortPosts(posts)
+        renderPostDashboard(sortedPosts);
     })
 }
 
@@ -31,5 +31,5 @@ const renderPostDashboard = (sortedPostArray) => {
 
 // Sort posts for most recent at bottom
 const sortPosts = (postArray) => {
-    return postArray.sort((post1, post2) => post1 - post2)
+    return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
 }
