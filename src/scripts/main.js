@@ -11,5 +11,6 @@ import { Nutshell } from "./Nutshell.js"
         ensure that the Nutshell component gets rendered
 */
 
-import { listPosts } from "./posts/PostList.js"
-listPosts();
+Nutshell();
+LoginForm();
+RegisterForm();
