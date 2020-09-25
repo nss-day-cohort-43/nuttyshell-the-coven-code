@@ -1,12 +1,14 @@
 // this is where the HTML form will populate
 const contentTarget = document.querySelector(".auth--register")
 const eventHub = document.querySelector(".container")
+const authContainer = document.getElementById("authContainer");
+const dashContainer = document.getElementById("dashContainer")
 
 //when a user is deemed legit, a classlist is added to the entire authorization container to make it disappear.
 eventHub.addEventListener("userAuthenticated", e => {
-    document.getElementById("authContainer").classList.add("toggleAuth")
+    authContainer.classList.add("hideAuth");
+    dashContainer.classList.remove("hideDashboard");
 })
-
 
 eventHub.addEventListener("click", e => {
     // when the click is on the register button...
@@ -62,7 +64,7 @@ const render = () => {
         <section class="register">
             <input id="register--username" type="text" placeholder="Username">
             <input id="register--email" type="text" placeholder="Email">
-            <input id="register--zipcode" type="text" placeholder="Zipcode">
+            <input id="register--zipcode" type="text" maxlength="5" placeholder="Zipcode">
 
             <button id="register--button">Register</button>
         </section>

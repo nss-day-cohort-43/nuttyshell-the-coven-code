@@ -43,3 +43,7 @@
     background-color: cornsilk;
     margin: .5em;
 }
+/* on page load the dashboard is hidden. after login authentication, the class is removed to show the dashboard */
+.hideDashboard {
+    display: none;
+}
