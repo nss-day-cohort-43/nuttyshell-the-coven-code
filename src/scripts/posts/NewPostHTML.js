@@ -1,1 +1,0 @@
-// Module goal: generate HTML for when user selects create new post
