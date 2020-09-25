@@ -16,16 +16,16 @@ import { newPostHTML } from "./PostNewHTML.js"
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", e => {
-    switch(e.target.id) {
-        case "post__btnPost":
-            console.log("CLICKED POST")
-            break;
-        case "post__btnEdit":
-            console.log("CLICKED EDIT")
-            break;
-        case "post__btnDelete":
-            console.log("CLICKED DELETE")
-            break;
+    if (e.target.id === "post__btnPost") {
+        console.log("CLICKED POST")
+    }
+    if (e.target.id.startsWith("post__btnEdit--")) {
+        const [prefix, id] = e.target.id.split("--")
+        console.log("CLICKED EDIT", id)
+    }
+    if (e.target.id.startsWith("post__btnDelete--")) {
+        const [prefix, id] = e.target.id.split("--")
+        console.log("CLICKED DELETE", id)
     }
 })
 
