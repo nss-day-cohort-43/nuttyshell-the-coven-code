@@ -4,17 +4,17 @@
 
 import {saveEvent} from './EventDataProvider.js'
 
-const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".events")
+const eventContainer = document.querySelector(".events")
 
 // code below listens for new event enry then tells saveEvent 
 // to go save the new event to the database
-eventHub.addEventListener("click", clickEvent => {
+eventContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
         const name = document.querySelector('#name')
         const date = document.querySelector('#date')
         const time = document.querySelector('#time')
-        const entryContent = document.querySelector("#entry")
+        const location = document.querySelector('#location')
+        const zipcode = document.querySelector('#zipcode')
 
         const newEvent = {
             name: name.value,
@@ -22,7 +22,7 @@ eventHub.addEventListener("click", clickEvent => {
             time: time.value,
             locationName: location.value,
             zipcode: zipcode.value,
-            userId: id
+            userId: parseInt(userId)
         }
         
         saveEvent(newEvent)
@@ -30,10 +30,11 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+const userId = sessionStorage.getItem("id") 
 
 
 export const eventForm = () => {
-    return  contentTarget.innerHTML =     
+    return  eventContainer.innerHTML =     
     `<form action="">
             <fieldset>
                 <label for="event">Name of Event:</label>

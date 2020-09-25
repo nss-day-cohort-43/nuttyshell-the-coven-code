@@ -1,11 +1,22 @@
 // By Audrey Thomasson
+const eventContainer = document.querySelector(".events")
 
+const dispatchStateChangeEvent = () => {
+    const entryStateChangedEvent = new CustomEvent("entryStateChanged", {
+        detail: {
+            userId: userId
+        }
+    })
+
+    eventContainer.dispatchEvent(entryStateChangedEvent)
+
+}
 
 let events = []
 
-
-export const getEvents = () => {
-    return fetch("http://localhost:8088/events?userId=1") // Fetch from the API
+// fetches all events stored for a user in the api
+export const getEvents = (userId) => {
+    return fetch(`http://localhost:8088/events?userId=${userId}`)
     .then(response => response.json())
     .then(
         parsedEvents => {
@@ -13,14 +24,16 @@ export const getEvents = () => {
         })
 }
 
-
+// returns copy of array of Events sorted by date
 export const useEvents = () => {
     const sortedByDate = events.sort(
-        (currentEvent, nextEvent) =>
+        (nextEvent, currentEvent) =>
             Date.parse(nextEvent.date) - Date.parse(currentEvent.date)
     )
     return sortedByDate
 }
+
+
 
 
 export const saveEvent = tacoEventObj => {
@@ -34,8 +47,8 @@ export const saveEvent = tacoEventObj => {
     .then(dispatchStateChangeEvent)
 }
 
-export const deleteEvent = tacoEntryObj => {
-    return fetch(`http://localhost:8088/entries/${tacoEntryObj}`, {
+export const deleteEvent = eventIdNum => {
+    return fetch(`http://localhost:8088/events/${eventIdNum}`, {
         method: "DELETE",
     })
     .then(dispatchStateChangeEvent)

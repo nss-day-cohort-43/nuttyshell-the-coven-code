@@ -1,5 +1,7 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
+import { EventList } from "./events/EventList.js"
+import { saveEvent } from "./events/EventDataProvider.js"
 import { Nutshell } from "./Nutshell.js"
 
 
@@ -10,3 +12,5 @@ import { Nutshell } from "./Nutshell.js"
     4. Also, if the user authenticates, and the login form is initially shown
         ensure that the Nutshell component gets rendered
 */
+
+EventList(1);

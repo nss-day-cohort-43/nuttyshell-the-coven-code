@@ -6,9 +6,9 @@
 
 import { deleteEvent } from "./EventDataProvider.js"
 
-const eventHub = document.querySelector(".container")
+const eventContainer = document.querySelector(".events")
 
-eventHub.addEventListener("click", clickEvent => {
+eventContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "deleteEntry") {
         const removeThisEvent = clickEvent.target.value
         deleteEvent(removeThisEvent)
@@ -37,9 +37,9 @@ export const singleEventHTML = (event) => {
         <div>Date: ${event.date}, ${event.time}</div>
         <div>Location: ${event.locationName}</div>
         <button type="button" id=weather" value="event.zip">Weather</button>
-        <button type="button" id="deleteEvent" value="${event.id}">X</button> 
+        <button type="button" id="deleteEvent" value="${event.id}">X</button>
         <br>
-    </section>
-
-    `
+        </section>
+        
+        `
 }
