@@ -5,13 +5,13 @@ eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "saveTask") {
         const taskInput = document.querySelector("#taskName")
         const dueDateInput = document.querySelector("#dueDate")
-        const userId = sessionStorage.getItem("id")
+        const userId = sessionStorage.getItem("activeUser")
         if (taskInput.value !== "" && dueDateInput.value !== "") {
             const newTask = {
                 "name": taskInput.value,
                 "complete": false,
                 "dueDate": dueDateInput.value,
-                "userId": userId
+                "userId": parseInt(userId)
             }
         }
     }
