@@ -1,8 +1,4 @@
-// Module goals
-    // fetch posts from database
-    // export usable posts
-    // save new post
-    // edit saved post
+// Module goals: fetch posts, export usable posts, save posts, edit posts, dispatch changes to eventHub
 
 const eventHub = document.querySelector(".container")
 

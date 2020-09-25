@@ -7,14 +7,22 @@
     // create posts
     // DONE -- Posts must be prepended with user's name (and a timestamp)
     // DONE -- sort posts so the most recent is at bottom
+    // Save posts
     // Delete posts
 
-import { getPosts, usePosts } from "./PostProvider.js"
+import { getPosts, usePosts, savePost } from "./PostProvider.js"
 import { postBoxHTML } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
 
+
 const eventHub = document.querySelector(".container")
 
+// When a change to posts occurs, re-render notes
+eventHub.addEventListener("postStateChanged", e => {
+    listPosts();
+})
+
+// Listen for all button clicks in Posts dashboard item
 eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
         // When users clicks Post, save entered data
@@ -32,11 +40,10 @@ eventHub.addEventListener("click", e => {
             const newPost = {
                 post: postMessage.value,
                 currentTimeStamp: Date.now(),
-                // PULL USERID FROM SESSION STORAGE
-                userId: 1
+                userId: sessionStorage.getItem("userId")
             }
-
-            // savePost function runs here
+            console.log(newPost)
+            savePost(newPost)
         }
     }
     if (e.target.id.startsWith("post__btnEdit--")) {
