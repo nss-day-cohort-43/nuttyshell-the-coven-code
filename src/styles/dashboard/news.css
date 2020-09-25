@@ -1,0 +1,69 @@
+.news {
+    position: relative;
+    background-color: black;
+    height: 18.75rem;
+    border-radius: 0.3125rem;
+    overflow: auto;
+}
+.displayNone {
+    display: none;
+}
+.newsHeader {
+    margin-left: 10px;
+    color: white;
+}
+
+.newsTitle {
+    text-decoration: none;
+    color: coral;
+}
+
+.articleContainer {
+    border: 3px solid rgb(23, 70, 156);
+    margin: 3px;
+    padding-left: 5px;
+    color: white;
+
+}
+
+#addNews {
+    font-size: 2em;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    top: -4.0625rem;
+    right: 0.625rem;
+    color: white;
+}
+
+#addNews:hover {
+    cursor: pointer;
+    color: coral;
+}
+
+.edit,
+.delete {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.newsEntryForm {
+    display: flex;
+    height: 18.75rem;
+}
+
+.newsEntryForm label {
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+.newsEntryForm input {
+    display: flex;
+    flex-wrap: wrap;
+    width: 21.875rem;
+    text-align: center;
+    margin: 1.25rem auto;
+}
+#newsSave {
+ margin: auto;
+}

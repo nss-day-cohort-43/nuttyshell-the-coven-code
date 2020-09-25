@@ -1,5 +1,6 @@
 @import "auth.css";
 @import "dashboard.css";
+@import "dashboard/news.css";
 
 footer {
     text-align: center;
