@@ -16,7 +16,8 @@ eventHub.addEventListener("click", e => {
                 if (users.length > 0) {
                     const user = users[0]
                     sessionStorage.setItem("activeUser", user.id)
-                    sessionStorage.setItem("userName", user.username)
+                    sessionStorage.setItem("username", user.username)
+                    sessionStorage.setItem("zipcode", user.zipcode)
                     // tell the app that the user has been made legit
                     eventHub.dispatchEvent(new CustomEvent("userAuthenticated"))
                 // if not a legit user, rerender a blank form and alert user to register

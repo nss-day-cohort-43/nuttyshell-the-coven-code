@@ -40,7 +40,7 @@ eventHub.addEventListener("click", e => {
                         // then save these key/value pairs of data in session storage
                         .then((newUser) => {
                             sessionStorage.setItem("activeUser", newUser.id)
-                            sessionStorage.setItem("userName", newUser.username)
+                            sessionStorage.setItem("username", newUser.username)
                             sessionStorage.setItem("email", newUser.email)
                             sessionStorage.setItem("zipcode", newUser.zipcode)
                         // tell the app that the user has been made legit
