@@ -22,6 +22,7 @@ eventHub.addEventListener("click", clickEvent => {
             time: time.value,
             locationName: location.value,
             zipcode: zipcode.value,
+            userId: id
         }
         
         saveEvent(newEvent)
