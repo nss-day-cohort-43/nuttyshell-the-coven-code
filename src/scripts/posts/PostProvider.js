@@ -35,6 +35,13 @@ export const savePost = postObj => {
     .then(dispatchPostStateChanged)
 }
 
-// delete posts, needs to filter in a specific postID
+// Delete post with selected ID
+export const deletePost = postId => {
+    return fetch(`http://localhost:8088/posts/${postId}`, {
+        method: "DELETE"
+    })
+    .then(getPosts)
+    .then(dispatchPostStateChanged)
+}
 
 // edit posts

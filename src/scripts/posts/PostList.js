@@ -10,7 +10,7 @@
     // Save posts
     // Delete posts
 
-import { getPosts, usePosts, savePost } from "./PostProvider.js"
+import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
 import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
 
@@ -44,7 +44,7 @@ eventHub.addEventListener("click", e => {
     }
     if (e.target.id.startsWith("post__btnDelete--")) {
         const [prefix, id] = e.target.id.split("--")
-        console.log("CLICKED DELETE", id)
+        deletePost(id);
     }
 })
 
