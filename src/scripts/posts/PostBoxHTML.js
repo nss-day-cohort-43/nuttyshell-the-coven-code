@@ -8,7 +8,8 @@ export const postBoxScroll = () => {
     postBox.scrollTop = postBox.scrollHeight;
 }
 
-// Includes if else check so only activeUsers can delete their own posts.
+// Includes if-else check so only activeUsers can delete their own posts.
+// Also allows for activeUsers to have different styling.
 export const postBoxHTML = (postArray) => {
     return `
         <h2>Posts</h2>
