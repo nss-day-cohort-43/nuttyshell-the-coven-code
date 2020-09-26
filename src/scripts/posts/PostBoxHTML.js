@@ -5,9 +5,7 @@ const activeUser = parseInt(sessionStorage.getItem("activeUser"))
 // Sets the scroll location for the post
 export const postBoxScroll = () => {
     const postBox = document.querySelector(".post__list")
-    if (postBox.scrollTop !== null) {
-        postBox.scrollTop = postBox.scrollHeight;
-    }
+    postBox.scrollTop = postBox.scrollHeight;
 }
 
 // Includes if else check so only activeUsers can delete their own posts.

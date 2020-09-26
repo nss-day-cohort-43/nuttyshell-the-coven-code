@@ -1,6 +1,6 @@
 /* The script I have setup to always show the current message at the bottom
 sets the scroll bar location based on the post list's (post box in the script) height value.
-To ensure the scroll bar works correctly, I *think* we have to set a specific height. */
+To ensure scroll bar works correctly, I *think* we have to set a specific height value on .post__list. */
 
 .post__list {
     display: flex;
@@ -17,8 +17,10 @@ To ensure the scroll bar works correctly, I *think* we have to set a specific he
     background-color: lavender;
     width: 70%;
     margin: 5px 0 0 5px;
+    padding-bottom: 5px;
 }
 
+/* Test to differentiate active user's posts from non-active */
 .single__active {
     background-color: lightgreen;
     align-self: flex-end;
