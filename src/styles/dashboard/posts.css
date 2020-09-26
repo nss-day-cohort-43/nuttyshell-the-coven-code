@@ -1,12 +1,27 @@
+/* The script I have setup to always show the current message at the bottom
+sets the scroll bar location based on the post list's (post box in the script) height value.
+To ensure the scroll bar works correctly, I *think* we have to set a specific height. */
+
 .post__list {
+    display: flex;
+    flex-flow: column;
     background-color: lightblue;
-    padding: 5px
+    padding: 5px;
+    height: 200px;
+    /* I set the overflow only on the Y axis, because I didn't want
+    the bottom scroll bar to ever show up. But maybe that's not how overflow-y works!*/
+    overflow-y: auto;
 }
 
 .post__single {
     background-color: lavender;
     width: 70%;
     margin: 5px 0 0 5px;
+}
+
+.single__active {
+    background-color: lightgreen;
+    align-self: flex-end;
 }
 
 

@@ -4,14 +4,14 @@
     // handle  eventHub clicks
 
 // Requirements:
-    // create posts
+    // DONE -- create posts
     // DONE -- Posts must be prepended with user's name (and a timestamp)
     // DONE -- sort posts so the most recent is at bottom
     // Save posts
     // Delete posts
 
 import { getPosts, usePosts, savePost } from "./PostProvider.js"
-import { postBoxHTML } from "./PostBoxHTML.js"
+import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
 
 
@@ -63,6 +63,7 @@ const renderPostDashboard = (sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
     targetElement.innerHTML = postBoxHTML(sortedPostArray);
     targetElement.innerHTML += newPostHTML();
+    postBoxScroll();
 }
 
 // Sort posts for most recent at bottom
