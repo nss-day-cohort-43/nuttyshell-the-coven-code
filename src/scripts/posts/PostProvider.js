@@ -44,6 +44,12 @@ export const deletePost = postId => {
     .then(dispatchPostStateChanged)
 }
 
+// Before we can edit, retrieve the selected post's data only
+export const getSelectedPost = postId => {
+    return fetch(`http://localhost:8088/posts/${postId}?_expand=user`)
+        .then(response => response.json())
+}
+
 // Edit post with selected ID
 export const editPost = (editedPost, postId) => {
     return fetch(`http://localhost:8088/posts/${postId}`, {

@@ -17,11 +17,20 @@ export const postBoxHTML = (postArray) => {
                 postArray.map(post => {
                     if (activeUser === post.userId) {
                         return `
-                        <p class="post__single single__active"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleTimeString("en-US")}</span> <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button> <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button></p>
+                        <p id="postId--${post.id}" class="post__single single__active">
+                            <span class="single__username">${post.user.username}</span>
+                            <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleTimeString("en-US")}</span>
+                            <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button>
+                            <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button>
+                        </p>
                         `
                     } else {
                         return `
-                        <p class="post__single"><span class="single__username">${post.user.username}</span> <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleTimeString("en-US")}</span> <span class="single__post">${post.post}</span></p>
+                        <p id="postId--${post.id}" class="post__single">
+                            <span class="single__username">${post.user.username}</span>
+                            <span class="single__timeStamp">${new Date(post.currentTimeStamp).toLocaleTimeString("en-US")}</span>
+                            <span class="single__post">${post.post}</span>
+                        </p>
                         `
                     }
                 }).join("")
