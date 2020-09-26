@@ -27,13 +27,6 @@ eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
         // When users clicks Post, save entered data
             // If no data entered, do not post
-            // Need to save
-                // userID
-                // timeStamp
-                // Message
-                // messageID is auto generated
-        console.log("CLICKED POST")
-
         const postMessage = document.querySelector("#newPost")
 
         if (postMessage.value !== "") {
@@ -42,7 +35,6 @@ eventHub.addEventListener("click", e => {
                 currentTimeStamp: Date.now(),
                 userId: parseInt(sessionStorage.getItem("activeUser"))
             }
-            console.log(newPost)
             savePost(newPost)
         }
     }
