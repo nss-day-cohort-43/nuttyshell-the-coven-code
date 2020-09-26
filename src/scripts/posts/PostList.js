@@ -1,27 +1,24 @@
 // Module goals:
-    // import all needed scripts for the posts section
-    // render all elements
-    // handle  eventHub clicks
+    // import all needed scripts for posts dashboard item
+    // render all post elements
+    // handle eventHub clicks
 
 // Requirements:
     // DONE -- create posts
     // DONE -- Posts must be prepended with user's name (and a timestamp)
     // DONE -- sort posts so the most recent is at bottom
     // Save posts
-    // Delete posts
+    // DONE -- Delete posts
 
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
 import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
 import { EditPostForm } from "./EditPost.js"
 
-
 const eventHub = document.querySelector(".container")
 
-// Custom event for when the Edit button is clicked
-// Tell edit script to render edit form
-// It's separated out because the edit script stores the original message
-// So the user can cancel an edit.
+// Custom event for when user clicks Edit button:
+// Saves the original message so the user can cancel edit
 const dispatchEditBtnPress = (post, id) => {
     const editBtnPress = new CustomEvent("editBtnPressed", {
         detail: {
