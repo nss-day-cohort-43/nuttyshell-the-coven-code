@@ -44,4 +44,15 @@ export const deletePost = postId => {
     .then(dispatchPostStateChanged)
 }
 
-// edit posts
+// Edit post with selected ID
+export const editPost = (editedPost, postId) => {
+    return fetch(`http://localhost:8088/posts/${postId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedPost)
+    })
+    .then(getPosts)
+    .then(dispatchPostStateChanged)
+}
