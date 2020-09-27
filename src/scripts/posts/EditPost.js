@@ -30,6 +30,7 @@ eventHub.addEventListener("click", e => {
     const clicked = e.target.id
     if (clicked.startsWith("post__btnSave--")) {
         const [prefix, id] = clicked.split("--")
+        // Saves all edited data
         const editedPost = { 
             id: parseInt(document.querySelector(`#postEdit--postId--${id}`).value),
             post: document.querySelector(`#postEdit--text--${id}`).value,
@@ -51,7 +52,7 @@ eventHub.addEventListener("click", e => {
         currentlyEditing = false
     }
     // Fixes bug when user clicks Post Button without entering text,
-    // currentlyEditing reverts to false and multiple edit boxes can appear
+    // currentlyEditing reverts to false without a re-render and multiple edit boxes can appear
     if (clicked === "post__btnPost" && document.querySelector(".new__textarea").value === "" && currentlyEditing === true) {
         currentlyEditing = true;
     }
