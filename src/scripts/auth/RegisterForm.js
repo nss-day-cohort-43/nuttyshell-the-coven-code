@@ -9,8 +9,8 @@ const dashContainer = document.getElementById("dashContainer");
 
 //when a user is deemed legit, a classlist is added to the entire authorization container to make it disappear.
 eventHub.addEventListener("userAuthenticated", (e) => {
-  authContainer.classList.add("hideAuth");
-  dashContainer.classList.remove("hideDashboard");
+    authContainer.classList.add("hideAuth");
+    dashContainer.classList.remove("hideDashboard");
 });
 
 eventHub.addEventListener("click", (e) => {
