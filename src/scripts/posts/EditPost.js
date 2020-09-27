@@ -27,8 +27,9 @@ eventHub.addEventListener("postEditBtnPressed", e => {
 
 // Listen for user click on Save or Cancel buttons
 eventHub.addEventListener("click", e => {
-    if (e.target.id.startsWith("post__btnSave--")) {
-        const [prefix, id] = e.target.id.split("--")
+    const clicked = e.target.id
+    if (clicked.startsWith("post__btnSave--")) {
+        const [prefix, id] = clicked.split("--")
         const editedPost = { 
             id: parseInt(document.querySelector(`#postEdit--postId--${id}`).value),
             post: document.querySelector(`#postEdit--text--${id}`).value,
@@ -40,14 +41,19 @@ eventHub.addEventListener("click", e => {
         currentlyEditing = false;
     }
     // Resets post to original state
-    if (e.target.id.startsWith("post__btnCancel--")) {
+    if (clicked.startsWith("post__btnCancel--")) {
         e.target.parentElement.innerHTML = originalPost
         currentlyEditing = false;
     }
     // Fixes bug where, if Edit form is open and user causes list to re-render,
     // currentlyEditing stays true, making edits impossible
-    if (e.target.id === "post__btnPost" || e.target.id.startsWith("post__btnDelete")) {
+    if (clicked === "post__btnPost" && document.querySelector(".new__textarea").value !== "" || clicked.startsWith("post__btnDelete")) {
         currentlyEditing = false
+    }
+    // Fixes bug when user clicks Post Button without entering text,
+    // currentlyEditing reverts to false and multiple edit boxes can appear
+    if (clicked === "post__btnPost" && document.querySelector(".new__textarea").value === "" && currentlyEditing === true) {
+        currentlyEditing = true;
     }
 })
 
