@@ -2,10 +2,25 @@
 
 const activeUser = parseInt(sessionStorage.getItem("activeUser"))
 
-// Sets the scroll location for the post
+// Sets scroll location for post box
 export const postBoxScroll = () => {
     const postBox = document.querySelector(".post__list")
     postBox.scrollTop = postBox.scrollHeight;
+}
+
+// Checks if post has been edited,
+// then generates correct HTML.
+const checkDate = (post) => {
+    if (post.editedTimeStamp === 0) {
+        return `
+        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")} -</span>
+        `
+    } else {
+        return `
+        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")} -</span>
+        <span class="single__editedTimeStamp">edited at ${new Date(post.editedTimeStamp).toLocaleTimeString("en-US")} -</span>
+        `
+    }
 }
 
 // Includes if-else check so only activeUsers can delete their own posts.
@@ -20,7 +35,7 @@ export const postBoxHTML = (postArray) => {
                         return `
                         <p id="postId--${post.id}" class="post__single single__active">
                             <span class="single__username">${post.user.username}</span>
-                            <span class="single__timeStamp">${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")}</span>
+                            ${checkDate(post)}
                             <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button>
                             <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button>
                         </p>
@@ -29,7 +44,7 @@ export const postBoxHTML = (postArray) => {
                         return `
                         <p id="postId--${post.id}" class="post__single">
                             <span class="single__username">${post.user.username}</span>
-                            <span class="single__timeStamp">${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")}</span>
+                            ${checkDate(post)}
                             <span class="single__post">${post.post}</span>
                         </p>
                         `
