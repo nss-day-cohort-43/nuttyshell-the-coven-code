@@ -1,4 +1,4 @@
-// Module goal: generate HTML for post entry box
+// Module goal: generate HTML for Post Entry Box
 
 export const newPostHTML = () => {
     return `

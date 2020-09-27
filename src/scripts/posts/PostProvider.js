@@ -31,7 +31,6 @@ export const savePost = postObj => {
         },
         body: JSON.stringify(postObj)
     })
-    .then(getPosts)
     .then(dispatchPostStateChanged)
 }
 
@@ -40,7 +39,6 @@ export const deletePost = postId => {
     return fetch(`http://localhost:8088/posts/${postId}`, {
         method: "DELETE"
     })
-    .then(getPosts)
     .then(dispatchPostStateChanged)
 }
 
@@ -59,6 +57,5 @@ export const editPost = (editedPost, postId) => {
         },
         body: JSON.stringify(editedPost)
     })
-    .then(getPosts)
     .then(dispatchPostStateChanged)
 }

@@ -1,15 +1,16 @@
-// Module goal: generate HTML for currently saved entries
+// Module goal: generate HTML for currently saved posts
 
 const activeUser = parseInt(sessionStorage.getItem("activeUser"))
 
-// Sets scroll location for post box
+// Sets scroll bar location to bottom
 export const postBoxScroll = () => {
     const postBox = document.querySelector(".post__list")
     postBox.scrollTop = postBox.scrollHeight;
 }
 
-// Includes if-else check so only activeUsers can delete their own posts.
-// Also allows for activeUsers to have different styling.
+// Generate HTML for entire post box section ("post box" is like a "chat box")
+    // Includes if-else check so only activeUsers can delete their own posts.
+    // Also allows for activeUsers to have unique styling.
 export const postBoxHTML = (postArray) => {
     return `
         <h2>Posts</h2>
@@ -41,7 +42,7 @@ export const postBoxHTML = (postArray) => {
 }
 
 // Checks if post has been edited,
-// then adds edited date
+// if so, added the edited time stamp
 export const checkDate = (post) => {
     if (post.editedTimeStamp === 0) {
         return `

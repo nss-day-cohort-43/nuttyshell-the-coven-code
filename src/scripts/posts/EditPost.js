@@ -1,26 +1,27 @@
-// Module goals: render editing form and listen for save button click
+// Module goal: allow user to edit a saved post
 
 import { getSelectedPost, editPost } from "./PostProvider.js"
 import { checkDate } from "./PostBoxHTML.js"
 
 const eventHub = document.querySelector(".container")
 
-// Stores original post for reverting with the cancel button
+// Stores original post so Cancel Button can re-render correct HTML
 let originalPost = "";
+
 // Allows only one post to be editable at a time. Otherwise, originalPost can be overwritten
 let currentlyEditing = false;
 
 // Listen for when user has clicked edit button, then:
-    // 1. store the original post
+    // 1. store original post
     // 2. render form
     // 3. set editing true
-eventHub.addEventListener("editBtnPressed", e => {
+eventHub.addEventListener("postEditBtnPressed", e => {
     if (currentlyEditing === false) {
         originalPost = e.detail.originalPost
         EditPostForm(e.detail.id)
         currentlyEditing = true;
     } else {
-        window.alert("Can only edit one message at a time.")
+        window.alert("Can only edit one post at a time.")
     }
 })
 
@@ -38,12 +39,14 @@ eventHub.addEventListener("click", e => {
         editPost(editedPost, id)
         currentlyEditing = false;
     }
+    // Resets message to original state
     if (e.target.id.startsWith("post__btnCancel--")) {
         e.target.parentElement.innerHTML = originalPost
         currentlyEditing = false;
     }
 })
 
+// Generates HTML for post editing form
 export const EditPostForm = postId => {
     getSelectedPost(postId)
         .then((response) => {
