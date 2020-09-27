@@ -44,9 +44,9 @@ eventHub.addEventListener("click", e => {
         e.target.parentElement.innerHTML = originalPost
         currentlyEditing = false;
     }
-    // Fixes bug where if Edit form is open when user creates new post
-    // currentlyEditing stays true, making all editing impossible
-    if (e.target.id === "post__btnPost") {
+    // Fixes bug where if Edit form is open and user causes list to re-render,
+    // currentlyEditing stays true, making edits impossible
+    if (e.target.id === "post__btnPost" || e.target.id.startsWith("post__btnDelete")) {
         currentlyEditing = false
     }
 })
