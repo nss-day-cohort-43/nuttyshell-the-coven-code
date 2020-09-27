@@ -29,46 +29,14 @@ newsContainer.addEventListener("click", e => {
     const newsTitle = document.querySelector("#newsTitle");
     const newsDescription = document.querySelector("#newsDescription")
 
-    getUsersId();
-
     if(e.target.id === "newsSave"){
     const newArticle = {
         url: urlInput.value,
         title: newsTitle.value,
         synopsis: newsDescription.value,
-        currentTimeStamp: new Date().getTime,
-        userId: parseInt(usersId)
+        currentTimeStamp: new Date().getTime(),
+        userId: parseInt(sessionStorage.getItem("activeUser"))
     }
     saveNewsEntry(newArticle)
 }}
 )
-
-
-
-
-let users
-
-const useUsers = () => {
-    return [...users]
-}
-
-const getUsers = async() => {
-    let response = await fetch("http://localhost:8080/users")
-    users = await response.json()
-    return users
-};
-
-let usersId;
-
-const getUsersId = () => {
-    getUsers()
-    .then(() => {
-        let users = useUsers()
-        users.map(user => {
-            if(user.username === sessionStorage.getItem("username")){
-                usersId = user.id
-                return usersId
-            }
-        })
-    })
-}
