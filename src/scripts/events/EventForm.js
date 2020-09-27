@@ -6,6 +6,12 @@ import {saveEvent} from './EventDataProvider.js'
 
 const eventContainer = document.querySelector(".events")
 
+// listens for notice that someone clicked on the + to add event
+// calls the eventForm below
+eventContainer.addEventListener('wantToAddEvent', event => {  
+    eventForm()
+})
+
 // code below listens for new event enry then tells saveEvent 
 // to go save the new event to the database
 eventContainer.addEventListener("click", clickEvent => {
@@ -15,6 +21,7 @@ eventContainer.addEventListener("click", clickEvent => {
         const time = document.querySelector('#time')
         const location = document.querySelector('#location')
         const zipcode = document.querySelector('#zipcode')
+        const userId = sessionStorage.getItem("id")
 
         const newEvent = {
             name: name.value,
@@ -29,8 +36,6 @@ eventContainer.addEventListener("click", clickEvent => {
  
     }
 })
-
-const userId = sessionStorage.getItem("id") 
 
 
 export const eventForm = () => {

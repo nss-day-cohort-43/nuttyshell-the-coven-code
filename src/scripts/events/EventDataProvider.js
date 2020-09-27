@@ -2,11 +2,7 @@
 const eventContainer = document.querySelector(".events")
 
 const dispatchStateChangeEvent = () => {
-    const entryStateChangedEvent = new CustomEvent("entryStateChanged", {
-        detail: {
-            userId: userId
-        }
-    })
+    const entryStateChangedEvent = new CustomEvent("entryStateChanged")
 
     eventContainer.dispatchEvent(entryStateChangedEvent)
 
@@ -33,16 +29,13 @@ export const useEvents = () => {
     return sortedByDate
 }
 
-
-
-
 export const saveEvent = tacoEventObj => {
     return fetch("http://localhost:8088/events", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(tacoEntryObj)
+        body: JSON.stringify(tacoEventObj)
     })
     .then(dispatchStateChangeEvent)
 }

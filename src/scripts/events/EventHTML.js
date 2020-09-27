@@ -28,7 +28,7 @@ eventContainer.addEventListener("click", clickEvent => {
 
 
 
-// HTML for a single event with delete and weather buttons
+// HTML for a single event with delete, edit and weather buttons
 export const singleEventHTML = (event) => {
     return `
     <section class="event-card">
@@ -38,6 +38,7 @@ export const singleEventHTML = (event) => {
         <div>Location: ${event.locationName}</div>
         <button type="button" id=weather" value="event.zip">Weather</button>
         <button type="button" id="deleteEvent" value="${event.id}">X</button>
+        <button type="button" id="editEvent" value="${event.id}">edit</button>
         <br>
         </section>
         
