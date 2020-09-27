@@ -6,6 +6,7 @@
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
 import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
+// Although this function is never called, the following line allows it to run
 import { EditPostForm } from "./EditPost.js"
 
 const eventHub = document.querySelector(".container")
@@ -38,6 +39,7 @@ eventHub.addEventListener("click", e => {
             const newPost = {
                 post: postMessage.value,
                 originalTimeStamp: Date.now(),
+                editedTimeStamp: 0,
                 userId: parseInt(sessionStorage.getItem("activeUser"))
             }
             savePost(newPost)

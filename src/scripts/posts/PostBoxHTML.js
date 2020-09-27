@@ -8,21 +8,6 @@ export const postBoxScroll = () => {
     postBox.scrollTop = postBox.scrollHeight;
 }
 
-// Checks if post has been edited,
-// then generates correct HTML.
-const checkDate = (post) => {
-    if (post.editedTimeStamp === 0) {
-        return `
-        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")} -</span>
-        `
-    } else {
-        return `
-        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString("en-US")} -</span>
-        <span class="single__editedTimeStamp">edited at ${new Date(post.editedTimeStamp).toLocaleTimeString("en-US")} -</span>
-        `
-    }
-}
-
 // Includes if-else check so only activeUsers can delete their own posts.
 // Also allows for activeUsers to have different styling.
 export const postBoxHTML = (postArray) => {
@@ -53,4 +38,19 @@ export const postBoxHTML = (postArray) => {
             }
         </div>
     `
+}
+
+// Checks if post has been edited,
+// then adds edited date
+export const checkDate = (post) => {
+    if (post.editedTimeStamp === 0) {
+        return `
+        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
+        `
+    } else {
+        return `
+        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
+        <span class="single__editedTimeStamp">edited at ${new Date(post.editedTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
+        `
+    }
 }
