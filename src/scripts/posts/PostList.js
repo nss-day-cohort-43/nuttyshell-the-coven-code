@@ -1,14 +1,7 @@
 // Module goals:
-    // import all needed scripts for posts dashboard item
+    // import all needed scripts for posts section
     // render all post elements
     // handle eventHub clicks
-
-// Requirements:
-    // DONE -- create posts
-    // DONE -- Posts must be prepended with user's name (and a timestamp)
-    // DONE -- sort posts so the most recent is at bottom
-    // Save posts
-    // DONE -- Delete posts
 
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
 import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
@@ -34,7 +27,7 @@ eventHub.addEventListener("postStateChanged", e => {
     listPosts();
 })
 
-// Listen for all button clicks in Posts dashboard item
+// Listen for all button clicks in Posts section
 eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
         // When users clicks Post, save entered data
@@ -44,7 +37,7 @@ eventHub.addEventListener("click", e => {
         if (postMessage.value !== "") {
             const newPost = {
                 post: postMessage.value,
-                currentTimeStamp: Date.now(),
+                originalTimeStamp: Date.now(),
                 userId: parseInt(sessionStorage.getItem("activeUser"))
             }
             savePost(newPost)
@@ -61,7 +54,7 @@ eventHub.addEventListener("click", e => {
     }
 })
 
-// List entire posts dashboard item on DOM
+// List entire posts section on DOM
 export const listPosts = () => {
     getPosts()
     .then(() => {
@@ -79,7 +72,7 @@ const renderPostDashboard = (sortedPostArray) => {
     postBoxScroll();
 }
 
-// Sort posts for most recent at bottom
+// Sort posts with most recent at bottom
 const sortPosts = (postArray) => {
     return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
 }

@@ -41,7 +41,8 @@ eventHub.addEventListener("click", e => {
         const editedPost = { 
             id: parseInt(document.querySelector(`#postEdit--postId--${id}`).value),
             post: document.querySelector(`#postEdit--text--${id}`).value,
-            currentTimeStamp: Date.now(),
+            originalTimeStamp: parseInt(document.querySelector(`#postEdit--originalTimeStamp--${id}`).value),
+            editedTimeStamp: Date.now(),
             userId: parseInt(document.querySelector(`#postEdit--userId--${id}`).value)
         }
         editPost(editedPost, id)
@@ -59,8 +60,9 @@ export const EditPostForm = postId => {
             document.querySelector(`#postId--${postId}`).innerHTML = `
             <input type="hidden" value="${response.id}" id="postEdit--postId--${postId}">
             <input type="hidden" value="${response.userId}" id="postEdit--userId--${postId}">
+            <input type="hidden" value="${response.originalTimeStamp}" id="postEdit--originalTimeStamp--${postId}">
             <span class="single__username">${response.user.username}</span>
-            <span class="single__timeStamp">${new Date(response.currentTimeStamp).toLocaleTimeString("en-US")}</span>
+            <span class="single__timeStamp">${new Date(response.originalTimeStamp).toLocaleTimeString("en-US")}</span>
             <textarea id="postEdit--text--${postId}">${response.post}</textarea>
             <button id="post__btnSave--${postId}" type="button">Save Edit</button>
             <button id="post__btnCancel--${postId}" type="button">Cancel Edit</button>
