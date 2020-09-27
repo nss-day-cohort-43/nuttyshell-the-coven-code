@@ -1,4 +1,4 @@
-// Module goals: fetch posts, export usable posts, save posts, edit posts, dispatch changes to eventHub
+// Module goals: fetch, export, save, edit, and dispatch changes to eventHub
 
 const eventHub = document.querySelector(".container")
 
@@ -42,7 +42,7 @@ export const deletePost = postId => {
     .then(dispatchPostStateChanged)
 }
 
-// To generate edit form, retrieve selected post's data only
+// To generate edit form, retrieve only selected post's data
 export const getSelectedPost = postId => {
     return fetch(`http://localhost:8088/posts/${postId}?_expand=user`)
         .then(response => response.json())

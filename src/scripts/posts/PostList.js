@@ -6,22 +6,9 @@
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
 import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
-// Although the following function is never called, the import line allows it to run
-import { EditPostForm } from "./EditPost.js"
+import { dispatchEditBtnPress } from "./EditPost.js"
 
 const eventHub = document.querySelector(".container")
-
-// Custom event for when user clicks Edit Button:
-    // saves original message, so user can cancel editing
-const dispatchEditBtnPress = (post, id) => {
-    const postEditBtnPress = new CustomEvent("postEditBtnPressed", {
-        detail: {
-            id: id,
-            originalPost: post.innerHTML
-        }
-    })
-    eventHub.dispatchEvent(postEditBtnPress)
-}
 
 // When changes to posts occur, re-render notes
 eventHub.addEventListener("postStateChanged", e => {
@@ -71,15 +58,16 @@ export const listPosts = () => {
     })
 }
 
+// Sort posts with most recent at bottom
+const sortPosts = (postArray) => {
+    return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
+}
+
 // Render entire Posts Section
 const renderPostDashboard = (sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
     targetElement.innerHTML = postBoxHTML(sortedPostArray);
     targetElement.innerHTML += newPostHTML();
+    // Ensures scroll bar is always at bottom
     postBoxScroll();
-}
-
-// Sort posts with most recent at bottom
-const sortPosts = (postArray) => {
-    return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
 }

@@ -11,6 +11,22 @@ let originalPost = "";
 // Allows only one post to be editable at a time. Otherwise, originalPost can be overwritten
 let currentlyEditing = false;
 
+// I THINK WE CAN REMOVE THE CUSTOM EVENT
+// AND HAVE ALL THE SAVING OF INFORMATION HAPPEN
+// IN IMMEDIATE EDIT BTN PRESS
+
+// Custom event for when user clicks Edit Button:
+    // saves original message, so user can cancel editing
+    export const dispatchEditBtnPress = (post, id) => {
+        const postEditBtnPress = new CustomEvent("postEditBtnPressed", {
+            detail: {
+                id: id,
+                originalPost: post.innerHTML
+            }
+        })
+        eventHub.dispatchEvent(postEditBtnPress)
+    }
+
 // Listen for when user has clicked Edit Button, then:
     // 1. store original post
     // 2. render form
@@ -59,7 +75,7 @@ eventHub.addEventListener("click", e => {
 })
 
 // Generates HTML for post editing form
-export const EditPostForm = postId => {
+const EditPostForm = postId => {
     getSelectedPost(postId)
         .then((response) => {
             document.querySelector(`#postId--${postId}`).innerHTML = `
