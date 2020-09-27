@@ -1,6 +1,7 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
+import { WelcomeUser } from "./WelcomeUser.js";
 
 
 /*
@@ -18,9 +19,10 @@ const dashContainer = document.getElementById("dashContainer");
 const activeUser = sessionStorage.getItem("activeUser")
 // if there is an activeUser, that means they've been here before so load the dashboard components(also reveal dashboard and hide login/reg)
 if (activeUser) {
+    Nutshell()
+    WelcomeUser()
     dashContainer.classList.remove("hideDashboard");
     authContainer.classList.add("hideAuth");
-    Nutshell()
 // otherwise display login/register
 } else {
     LoginForm();
