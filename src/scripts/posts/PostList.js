@@ -1,6 +1,6 @@
 // Module goals:
-    // import all needed scripts for Posts section
-    // render all Post elements
+    // import all needed scripts for Posts Section
+    // render all post elements
     // handle eventHub clicks
 
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
@@ -23,7 +23,7 @@ const dispatchEditBtnPress = (post, id) => {
     eventHub.dispatchEvent(postEditBtnPress)
 }
 
-// When changes to Posts occur, re-render notes
+// When changes to posts occur, re-render notes
 eventHub.addEventListener("postStateChanged", e => {
     listPosts();
 })
@@ -32,7 +32,7 @@ eventHub.addEventListener("postStateChanged", e => {
 eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
         // When users click Post Button, save entered data
-            // If user entered no data, do not post
+            // If user has entered no data, do not post
         const postMessage = document.querySelector("#newPost")
 
         if (postMessage.value !== "") {
@@ -43,21 +43,25 @@ eventHub.addEventListener("click", e => {
                 userId: parseInt(sessionStorage.getItem("activeUser"))
             }
             savePost(newPost)
+        } else {
+            alert("No post entered.")
         }
     }
+
     // When users click Edit Button, dispatch edit press event
     if (e.target.id.startsWith("post__btnEdit--")) {
         const [prefix, id] = e.target.id.split("--")
         const originalPost = document.querySelector(`#${e.target.id}`).parentElement
         dispatchEditBtnPress(originalPost, id)
     }
+
     if (e.target.id.startsWith("post__btnDelete--")) {
         const [prefix, id] = e.target.id.split("--")
         deletePost(id);
     }
 })
 
-// List entire Posts section on DOM
+// List entire Posts Section on DOM
 export const listPosts = () => {
     getPosts()
     .then(() => {
@@ -67,7 +71,7 @@ export const listPosts = () => {
     })
 }
 
-// Render entire Posts section
+// Render entire Posts Section
 const renderPostDashboard = (sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
     targetElement.innerHTML = postBoxHTML(sortedPostArray);
@@ -75,7 +79,7 @@ const renderPostDashboard = (sortedPostArray) => {
     postBoxScroll();
 }
 
-// Sort Posts with most recent at bottom
+// Sort posts with most recent at bottom
 const sortPosts = (postArray) => {
     return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
 }

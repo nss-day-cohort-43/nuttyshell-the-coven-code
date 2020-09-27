@@ -4,7 +4,7 @@ const eventHub = document.querySelector(".container")
 
 let posts = []
 
-// When a change to posts occurs, dispatch change to eventHub
+// When a change occurs to posts, dispatch change to eventHub
 const dispatchPostStateChanged = () => {
     const postStateChangedEvent = new CustomEvent("postStateChanged")
     eventHub.dispatchEvent(postStateChangedEvent)
@@ -42,7 +42,7 @@ export const deletePost = postId => {
     .then(dispatchPostStateChanged)
 }
 
-// Before we can edit, retrieve the selected post's data only
+// To generate edit form, retrieve selected post's data only
 export const getSelectedPost = postId => {
     return fetch(`http://localhost:8088/posts/${postId}?_expand=user`)
         .then(response => response.json())

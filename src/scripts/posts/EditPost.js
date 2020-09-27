@@ -11,10 +11,10 @@ let originalPost = "";
 // Allows only one post to be editable at a time. Otherwise, originalPost can be overwritten
 let currentlyEditing = false;
 
-// Listen for when user has clicked edit button, then:
+// Listen for when user has clicked Edit Button, then:
     // 1. store original post
     // 2. render form
-    // 3. set editing true
+    // 3. set editing to true
 eventHub.addEventListener("postEditBtnPressed", e => {
     if (currentlyEditing === false) {
         originalPost = e.detail.originalPost
@@ -25,7 +25,7 @@ eventHub.addEventListener("postEditBtnPressed", e => {
     }
 })
 
-// Listen for user click on save or cancel edit buttons
+// Listen for user click on Save or Cancel buttons
 eventHub.addEventListener("click", e => {
     if (e.target.id.startsWith("post__btnSave--")) {
         const [prefix, id] = e.target.id.split("--")
@@ -39,12 +39,12 @@ eventHub.addEventListener("click", e => {
         editPost(editedPost, id)
         currentlyEditing = false;
     }
-    // Resets message to original state
+    // Resets post to original state
     if (e.target.id.startsWith("post__btnCancel--")) {
         e.target.parentElement.innerHTML = originalPost
         currentlyEditing = false;
     }
-    // Fixes bug where if Edit form is open and user causes list to re-render,
+    // Fixes bug where, if Edit form is open and user causes list to re-render,
     // currentlyEditing stays true, making edits impossible
     if (e.target.id === "post__btnPost" || e.target.id.startsWith("post__btnDelete")) {
         currentlyEditing = false

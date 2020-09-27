@@ -41,16 +41,17 @@ export const postBoxHTML = (postArray) => {
     `
 }
 
-// Checks if post has been edited,
-// if so, added the edited time stamp
+// Generates date and checks if post has been edited. If so, add edited time stamp
 export const checkDate = (post) => {
+    const originalTimeStamp = `<span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>`
+    
     if (post.editedTimeStamp === 0) {
         return `
-        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
+        ${originalTimeStamp}
         `
     } else {
         return `
-        <span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
+        ${originalTimeStamp}
         <span class="single__editedTimeStamp">edited at ${new Date(post.editedTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>
         `
     }
