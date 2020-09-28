@@ -4,7 +4,9 @@ import { listFriends } from "./friends/FriendList.js"
 
 export const Nutshell = (activeUser) => {
     // Render all your UI components here
+    // Must convert activeUser from string to integer
+    const parsedActiveUser = parseInt(activeUser)
     allTheNews()
-    listPosts();
-    listFriends(activeUser);
+    listPosts(parsedActiveUser);
+    listFriends(parsedActiveUser);
 }

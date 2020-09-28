@@ -1,7 +1,6 @@
 // Authored by Tristan Wyatt & Sam Edwards
 
 export const friendsHtmlFormat = (friendsArray) => {
-    debugger
     return `
     <h2 class="friendsHeader">Friends</h2></section>
         <div id="addFriend" title="Add Friend">+</div>
