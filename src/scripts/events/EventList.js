@@ -34,10 +34,13 @@ eventContainer.addEventListener("click", clickEvent => {
 
     if (clickEvent.target.id === "weather") {
         const weatherZip = clickEvent.target.value
+         if 
 
             // CHECK IN HERE IF THE DATE OF THE EVENT IS CLOSE ENOUGH
-
-        weatherDetail(weatherZip)
+            weatherDetail(weatherZip)
+        } else {
+            alert("Weather available when event is within 5 days.")
+        }
     }
 })
 
