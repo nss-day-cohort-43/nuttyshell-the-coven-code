@@ -4,10 +4,18 @@
 
 import { getEvents, useEvents, deleteEvent } from "./EventDataProvider.js";
 import { eventForm } from "./EventForm.js";
-import { singleEventHTML } from "./EventHTML.js";
+import { eventBoxHTML } from "./EventHTML.js";
 
 // DOM reference to the event container
+const eventHub = document.querySelector(".events") 
 const eventContainer = document.querySelector(".events") 
+
+// listens for either a saveEvent or deleteEvent and then re-renders the 
+// updated list of events
+eventHub.addEventListener('entryStateChanged', event => {
+    const userId = sessionStorage.getItem("id") 
+    EventList(userId)
+})
 
 
 // Listens for a click on the + sign and dispatches the notice so the form
@@ -16,38 +24,25 @@ eventContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "addEvent") {
         eventForm()
     }
-    //     const wantToAddEvent = new CustomEvent("wantToAddEvent")
-    // }
-    // eventContainer.dispatchEvent(wantToAddEvent)
-})
 
-// Listens for a click on the delete button & calls deleteEvent to remove from database
-eventContainer.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "deleteEntry") {
+    // Listens for a click on the delete button & calls deleteEvent
+    // to remove from database
+    if (clickEvent.target.id === "deleteEvent") {
         const removeThisEvent = clickEvent.target.value
         deleteEvent(removeThisEvent)
+    }
+
+    if (clickEvent.target.id === "weather") {
+        const weatherZip = clickEvent.target.value
+
+            // CHECK IN HERE IF THE DATE OF THE EVENT IS CLOSE ENOUGH
+
+        weatherDetail(weatherZip)
     }
 })
 
 
-// eventHub.addEventListener("click", clickEvent => {
-//     if (clickEvent.target.id === "weather") {
-//         const weatherZip = clickEvent.target.value
 
-            // CHECK IN HERE IF THE DATE OF THE EVENT IS CLOSE ENOUGH
-
-//         weatherDetail(weatherZip)
-//     }
-// })
-
-
-
-// listens for either a saveEvent or deleteEvent and then re-renders the 
-// updated list of events
-eventContainer.addEventListener('entryStateChanged', event => {
-    const userId = sessionStorage.getItem("id") 
-    EventList(userId)
-})
 
 
 // this EventList is called by the main.js to render the initial
@@ -58,15 +53,8 @@ export const EventList = (userId) => {
     .then(render)
 }
 
-
-
+// calls eventBoxHTMl from EventHTML page to render/fill the event box content to the DOM
 const render = (eventArray) => {
-    let HTMLArray = eventArray.map(singleEvent => {
-    return singleEventHTML(singleEvent);
-    })
-    eventContainer.innerHTML = HTMLArray.join("");
-
-        // `<h2 class="eventHeader">Events</h2>
-    // <div id="addEvent">+</div>`
-
+    eventContainer.innerHTML = eventBoxHTML(eventArray)
 }
+
