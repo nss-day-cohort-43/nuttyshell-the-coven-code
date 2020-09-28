@@ -3,7 +3,11 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
+import { allTheNews } from "./News/News.js"
 import { WelcomeUser } from "./WelcomeUser.js";
+
+allTheNews()
+
 
 /*
     1. Check if the user is authenticated by looking in session storage for `activeUser`
