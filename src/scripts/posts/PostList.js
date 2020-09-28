@@ -60,7 +60,7 @@ export const listPosts = () => {
 
 // Sort posts with most recent at bottom
 const sortPosts = (postArray) => {
-    return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
+    return postArray.sort((post1, post2) => post1.originalTimeStamp - post2.originalTimeStamp)
 }
 
 // Sets scroll bar location to bottom
