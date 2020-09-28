@@ -4,7 +4,7 @@ import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
 import { WelcomeUser } from "./WelcomeUser.js";
-import { LogoutBtn } from "./logout/LogoutComponent.js";
+
 
 /*
     1. Check if the user is authenticated by looking in session storage for `activeUser`
@@ -23,7 +23,6 @@ const activeUser = sessionStorage.getItem("activeUser")
 if (activeUser) {
     Nutshell()
     WelcomeUser()
-    LogoutBtn()
     dashContainer.classList.remove("hideDashboard");
     authContainer.classList.add("hideAuth");
 // otherwise display login/register
