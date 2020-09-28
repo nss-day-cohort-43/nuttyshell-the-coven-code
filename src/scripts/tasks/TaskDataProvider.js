@@ -14,7 +14,7 @@ export const getTaskEntries = () => {
         })
 }
 
-export const saveJournalEntry = newJournalEntry => {
+export const saveTaskEntry = newTaskEntry => {
     return fetch("http://localhost:8088/tasks", {
         method: "POST",
         headers: {
@@ -25,8 +25,8 @@ export const saveJournalEntry = newJournalEntry => {
         .then(dispatchStateChangeEvent)
 }
 
-export const deleteJournalEntry = deletedJournalEntry => {
-    return fetch(`http://localhost:8088/entries/${deletedJournalEntry.id}`, {
+export const deleteTaskEntry = deletedTaskEntry => {
+    return fetch(`http://localhost:8088/entries/${deletedTaskEntry.id}`, {
         method: "DELETE"
     })
         .then(dispatchStateChangeEvent) 

@@ -1,3 +1,5 @@
+import { saveTaskEntry } from "./TaskDataProvider.js"
+
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".tasks")
 
@@ -13,6 +15,8 @@ eventHub.addEventListener("click", clickEvent => {
                 "dueDate": dueDateInput.value,
                 "userId": parseInt(userId)
             }
+            saveTaskEntry(newTask)
+            // .then(() => (useTasks()))
         }
     }
 })
