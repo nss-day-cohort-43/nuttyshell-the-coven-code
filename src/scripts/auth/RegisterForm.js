@@ -1,3 +1,5 @@
+// Authored by Terra Roush
+
 import { emailIsValid } from "./validateEmail.js";
 import { validateZipCode } from "./validateZipCode.js";
 
