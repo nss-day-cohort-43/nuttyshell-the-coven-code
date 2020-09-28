@@ -1,3 +1,5 @@
+// Authored by Terra Roush
+
 import defaultExport from "../Settings.js"
 // creates ability to use api key
 const keys = () => {
