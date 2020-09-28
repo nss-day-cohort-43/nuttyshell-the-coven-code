@@ -1,5 +1,8 @@
+// Authored by Terra Roush
+
 import { emailIsValid } from "./validateEmail.js";
 import { validateZipCode } from "./validateZipCode.js";
+import { Nutshell } from "../Nutshell.js"
 
 // this is where the HTML form will populate
 const contentTarget = document.querySelector(".auth--register");
@@ -52,6 +55,7 @@ eventHub.addEventListener("click", (e) => {
                   sessionStorage.setItem("zipcode", newUser.zipcode);
                   // tell the app that the user has been made legit
                   eventHub.dispatchEvent(new CustomEvent("userAuthenticated"));
+                  Nutshell()
                 });
             } else {
               window.alert("Username already exists!");

@@ -1,3 +1,7 @@
+// Authored by Terra Roush
+
+import { Nutshell } from "../Nutshell.js"
+
 // this is where the HTML form will populate
 const contentTarget = document.querySelector(".auth--login")
 const eventHub = document.querySelector(".container")
@@ -20,6 +24,8 @@ eventHub.addEventListener("click", e => {
                     sessionStorage.setItem("zipcode", user.zipcode)
                     // tell the app that the user has been made legit
                     eventHub.dispatchEvent(new CustomEvent("userAuthenticated"))
+                    Nutshell();
+
                 // if not a legit user, rerender a blank form and alert user to register
                 } else {
                    LoginForm();

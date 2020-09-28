@@ -1,6 +1,8 @@
-import { taskEntryList } from "./tasks/TaskEntryList.js"
+import { allTheNews } from "./News/News.js"
+import { listPosts } from "./posts/PostList.js"
 
 export const Nutshell = () => {
     // Render all your UI components here
-    taskEntryList()
+    allTheNews()
+    listPosts();
 }
