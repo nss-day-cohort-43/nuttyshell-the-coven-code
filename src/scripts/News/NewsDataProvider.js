@@ -1,4 +1,4 @@
-// Tristan
+// author: Tristan Wyatt
 import { allTheNews } from "./News.js";
 
 let news;

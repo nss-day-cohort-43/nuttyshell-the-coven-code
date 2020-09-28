@@ -1,4 +1,4 @@
-// Tristan
+// author: Tristan Wyatt
 import { singleNewsArticle, editNewsEntry } from "./NewsDataProvider.js";
 const newsContainer = document.querySelector(".news")
 

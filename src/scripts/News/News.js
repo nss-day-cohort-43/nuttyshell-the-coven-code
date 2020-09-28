@@ -1,4 +1,4 @@
-// Tristan
+//author: Tristan
 import { useNews, getNews, deleteNewsEntry } from "./NewsDataProvider.js";
 import { newsHtmlFormat } from "./NewsHTML.js";
 import { newNewsArticle } from "./NewsInput.js";
@@ -7,12 +7,14 @@ import { renderNews } from "./NewsRender.js";
 const newsContainer = document.querySelector(".news")
 
 
-// Renders all the news to the News container innerHTML
+// Renders all the news to the News container innerHTML based on the activeUser signed in
 export const allTheNews = () => {
     getNews()
     .then(() => {
         let news = useNews()
-        let newsHtml = newsHtmlFormat(news)
+        let userNews = news.filter(news => news.userId === parseInt(sessionStorage.getItem("activeUser")))
+     
+        let newsHtml = newsHtmlFormat(userNews)
         renderNews(newsHtml)
     })
 }
