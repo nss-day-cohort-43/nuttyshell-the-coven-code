@@ -1,3 +1,5 @@
+// Authored by Terra Roush
+
 // this is where the HTML form will populate
 const contentTarget = document.querySelector(".auth--login")
 const eventHub = document.querySelector(".container")

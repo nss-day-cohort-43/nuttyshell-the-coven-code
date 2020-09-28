@@ -1,3 +1,5 @@
+// Authored by Terra Roush
+
 const eventHub = document.querySelector(".container")
 const welcomeTarget = document.querySelector(".dash--header")
 
