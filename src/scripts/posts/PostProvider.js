@@ -1,4 +1,4 @@
-// Module goals: fetch, export, save, edit, and dispatch changes to eventHub
+// Module goals: fetch, export, save, edit, delete, and dispatch post changes to eventHub
 
 const eventHub = document.querySelector(".container")
 

@@ -2,12 +2,6 @@
 
 const activeUser = parseInt(sessionStorage.getItem("activeUser"))
 
-// Sets scroll bar location to bottom
-export const postBoxScroll = () => {
-    const postBox = document.querySelector(".post__list")
-    postBox.scrollTop = postBox.scrollHeight;
-}
-
 // Generates date HTML and checks if post has been edited. If so, add edited time stamp
 export const checkDate = (post) => {
     const originalTimeStamp = `<span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>`
@@ -25,7 +19,7 @@ export const postBoxHTML = (postArray) => {
         <div class="post__list">
             ${
                 postArray.map(post => {
-                    // To reduce repeated strings, username stored in variable
+                    // To reduce repeated strings, store username in variable
                     const username = `<span class="single__username">${post.user.username}</span>`
 
                     if (activeUser === post.userId) {

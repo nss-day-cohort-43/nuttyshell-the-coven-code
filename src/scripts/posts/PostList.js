@@ -4,7 +4,7 @@
     // handle eventHub clicks
 
 import { getPosts, usePosts, savePost, deletePost } from "./PostProvider.js"
-import { postBoxHTML, postBoxScroll } from "./PostBoxHTML.js"
+import { postBoxHTML } from "./PostBoxHTML.js"
 import { newPostHTML } from "./PostNewHTML.js"
 import { dispatchEditBtnPress } from "./EditPost.js"
 
@@ -15,7 +15,7 @@ eventHub.addEventListener("postStateChanged", e => {
     listPosts();
 })
 
-// Listen for all button clicks in Posts section
+// Listen for button clicks in Posts section
 eventHub.addEventListener("click", e => {
     if (e.target.id === "post__btnPost") {
         // When users click Post Button, save entered data
@@ -35,7 +35,7 @@ eventHub.addEventListener("click", e => {
         }
     }
 
-    // When users click Edit Button, dispatch edit press event
+    // When users click Edit Button, store post and dispatch edit press event
     if (e.target.id.startsWith("post__btnEdit--")) {
         const [prefix, id] = e.target.id.split("--")
         const originalPost = document.querySelector(`#${e.target.id}`).parentElement
@@ -61,6 +61,12 @@ export const listPosts = () => {
 // Sort posts with most recent at bottom
 const sortPosts = (postArray) => {
     return postArray.sort((post1, post2) => post1.currentTimeStamp - post2.currentTimeStamp)
+}
+
+// Sets scroll bar location to bottom
+const postBoxScroll = () => {
+    const postBox = document.querySelector(".post__list")
+    postBox.scrollTop = postBox.scrollHeight;
 }
 
 // Render entire Posts Section
