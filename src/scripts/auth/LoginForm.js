@@ -1,6 +1,6 @@
 // Authored by Terra Roush
 
-import { Nutshell } from "../Nutshell.js"
+import { verifyActiveUser } from "../main.js"
 
 // this is where the HTML form will populate
 const contentTarget = document.querySelector(".auth--login")
@@ -24,7 +24,9 @@ eventHub.addEventListener("click", e => {
                     sessionStorage.setItem("zipcode", user.zipcode)
                     // tell the app that the user has been made legit
                     eventHub.dispatchEvent(new CustomEvent("userAuthenticated"))
-                    Nutshell();
+                    // Once user logs in, this renders Nutshell with current activeUser's information 
+                    const activeUser = sessionStorage.getItem("activeUser", user.id)
+                    verifyActiveUser(activeUser);
 
                 // if not a legit user, rerender a blank form and alert user to register
                 } else {
