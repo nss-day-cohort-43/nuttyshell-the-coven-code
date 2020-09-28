@@ -1,5 +1,4 @@
-// By Audrey Thomasson
-
+// Authored by Audrey Thomasson
 
 // HTML for event box with add event, delete, edit and weather buttons
 export const eventBoxHTML = (eventArray) => {

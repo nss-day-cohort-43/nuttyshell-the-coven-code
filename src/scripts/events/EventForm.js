@@ -1,4 +1,4 @@
-// By Audrey Thomasson
+// Authored by Audrey Thomasson
 // HTML for the form to enter events and call the saveEvent function
 // from EventDataProvider
 

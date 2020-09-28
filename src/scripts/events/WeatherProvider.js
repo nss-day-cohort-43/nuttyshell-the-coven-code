@@ -1,4 +1,6 @@
-// AUDREY
+// By Audrey Thomasson
+
+// Weather call for extended forecast to be used for upcoming events
 
 import {keys} from "../Settings.js";
 

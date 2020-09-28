@@ -1,4 +1,5 @@
-// By Audrey Thomasson
+// Authored by Audrey Thomasson
+
 const eventHub = document.querySelector(".events")
 
 const dispatchStateChangeEvent = () => {
