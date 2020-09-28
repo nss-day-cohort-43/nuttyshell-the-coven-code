@@ -1,3 +1,4 @@
+// Authored by Sam Edwards
 // Module goal: allow user to edit a saved post
 
 import { editPost } from "./PostProvider.js"

@@ -1,3 +1,4 @@
+// Authored by Sam Edwards
 // Module goals:
     // import all needed scripts for Posts Section
     // render all post elements

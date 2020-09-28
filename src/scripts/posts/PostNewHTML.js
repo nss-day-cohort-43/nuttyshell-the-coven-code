@@ -1,3 +1,4 @@
+// Authored by Sam Edwards
 // Module goal: generate HTML for Post Entry Box
 
 export const newPostHTML = () => {

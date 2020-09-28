@@ -1,3 +1,4 @@
+// Authored by Sam Edwards
 // Module goal: generate HTML for editing post
 
 import { getSelectedPost } from "./PostProvider.js"

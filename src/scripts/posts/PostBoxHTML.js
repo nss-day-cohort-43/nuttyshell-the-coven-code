@@ -1,3 +1,4 @@
+// Authored by Sam Edwards
 // Module goal: generate HTML for currently saved posts
 
 const activeUser = parseInt(sessionStorage.getItem("activeUser"))
