@@ -1,6 +1,5 @@
 .news {
     position: relative;
-    background-color: black;
     height: 18.75rem;
     border-radius: 0.3125rem;
     overflow: auto;
@@ -10,21 +9,17 @@
 }
 .newsHeader {
     margin-left: 10px;
-    color: white;
 }
 
 .newsTitle {
     text-decoration: none;
-    color: coral;
-    font-weight: bolder;
 }
 
 .articleContainer {
-    border: 3px solid rgb(23, 70, 156);
+    border: 3px solid black;
     margin: 3px;
     padding-left: 5px;
     padding-top: 5px;
-    color: white;
 }
 .articleContainer input {
     display: flex;
@@ -42,12 +37,10 @@
     position: relative;
     top: -4.0625rem;
     right: 0.625rem;
-    color: white;
 }
 
 #addNews:hover {
     cursor: pointer;
-    color: coral;
 }
 
 .edit,
@@ -63,7 +56,6 @@
 
 .newsEntryForm label {
     text-align: center;
-    color: white;
     font-weight: bolder;
 }
 .newsEntryForm input {

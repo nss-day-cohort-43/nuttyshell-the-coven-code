@@ -9,7 +9,7 @@ eventHub.addEventListener("click", e => {
         const username = document.querySelector("#login__username").value
 
         // return that user found by username
-        return fetch(`http://localhost:8080/users?username=${username}`)
+        return fetch(`http://localhost:8088/users?username=${username}`)
             .then(response => response.json())
             .then(users => {
                 // an array returns. if there is something in it, take the first index(0) and store the following key/value data in session storage

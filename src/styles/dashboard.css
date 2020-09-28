@@ -10,7 +10,7 @@
 
 .dash--header {
     grid-area: header;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
     height: 7.8125rem;
@@ -18,35 +18,35 @@
 
 .tasks {
     grid-area: tasks;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
 } 
 
 .events {
     grid-area: events;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
 }
 
 .news {
     grid-area: news;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
 }
 
 .posts {
     grid-area: posts;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
 }
 
 .friends {
     grid-area: friends;
-    /* background-color: cornsilk; */
+    background-color: cornsilk;
     border: 3px solid black;
     margin: .5em;
 }

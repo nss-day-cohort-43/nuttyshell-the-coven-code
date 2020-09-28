@@ -1,22 +1,20 @@
+import { singleNewsArticle, editNewsEntry } from "./NewsDataProvider.js";
+const newsContainer = document.querySelector(".news")
+
 // News html format that sorts the articles by Timestamp
 // and builds out the html for each article container
 // as well as the Edit & Delete buttons
-
-import { singleNewsArticle, editNewsEntry } from "./NewsDataProvider.js";
-
-
-
 export const newsHtmlFormat = (newsArticle) => {
     sorting(newsArticle)
     return `
     <h2 class="newsHeader">News</h2></section>
-        <div id="addNews">+</div>
+        <div id="addNews" title="Add New">+</div>
         ${newsArticle.map(news => {
          return `
            <div id="article--${news.id}" class="articleContainer"> 
             <a id="articleTag--${news.id}" class="newsTitle" href="${news.url}" target="_blank" contenteditable="false">"${news.title}"</a><br>
             <p id="newsDescription--${news.id}" contenteditable="false">-${news.synopsis}</p>
-            <button id="edit--${news.id}" class="edit">✎</button><button id="delete--${news.id}" class="delete">✘</button>
+            <button id="edit--${news.id}" class="edit" title="Edit">✎</button><button id="delete--${news.id}" class="delete" title="Delete">✘</button>
            </div> 
             `
         }).join("")
@@ -24,6 +22,7 @@ export const newsHtmlFormat = (newsArticle) => {
     `
 }
 
+// Used for sorting Articles by Time before being rendered to news Container
 const sorting = (sortObj) => {
     sortObj.sort((a, b) => {
         if(a.currentTimeStamp > b.currentTimeStamp ) {
@@ -32,32 +31,32 @@ const sorting = (sortObj) => {
     })
 }
 
-const newsContainer = document.querySelector(".news")
-
-
-
+// Event listener for Edit button to populater newsContainer innerHTML
+// with inputs fields to edit the current article
+// and also includes a Save button
 newsContainer.addEventListener("click", e => {
     const [prefix, id] = e.target.id.split("--")
     
-    singleNewsArticle(id)
-    .then((response) => {
-
-    if(e.target.id.startsWith("edit--")){
+     if(e.target.id.startsWith("edit--")){
+        singleNewsArticle(id)
+        .then((response) => {
         document.querySelector(`#article--${id}`).innerHTML =`
         <input id="articleTag--${id}" value="${response.title}"/>
         <input id="url--${id}"value="${response.url}"/>
         <input id="newsDescription--${id}" value="${response.synopsis}"/>
         <button id="saveArticle--${id}" class="articleSaveBtn">Save</button>
         `
-        
-        }
-    })
+        })
+    }
 })
 
-
+// Event listener for Save button
+// Upon click the values from the input field
+// Are updated in the Article and passed as an argument
+// in the form of an Object to update the information
+// into the editNewsEntry function located in NewsDataProvider.js
 newsContainer.addEventListener("click", e => {
     const [prefix, id] = e.target.id.split("--")
-    console.log(id)
 
     if(e.target.id.startsWith("saveArticle")){
         const article = document.querySelector(`#articleTag--${id}`)
@@ -71,7 +70,6 @@ newsContainer.addEventListener("click", e => {
             currentTimeStamp: new Date().getTime(),
             userId: parseInt(sessionStorage.getItem("activeUser"))
         }
-        console.log(id)
         editNewsEntry(id, newArticle)
     }
 })

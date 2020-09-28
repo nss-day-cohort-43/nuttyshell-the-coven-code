@@ -3,6 +3,8 @@ import { newsHtmlFormat } from "./NewsHTML.js";
 import { newNewsArticle } from "./NewsInput.js";
 import { renderNews } from "./NewsRender.js";
 
+const newsContainer = document.querySelector(".news")
+
 
 // Renders all the news to the News container innerHTML
 export const allTheNews = () => {
@@ -14,7 +16,6 @@ export const allTheNews = () => {
     })
 }
 
-const newsContainer = document.querySelector(".news")
 // Click event that targets the Plus Sign of News container 
 // and sets that container 
 newsContainer.addEventListener("click", e => {

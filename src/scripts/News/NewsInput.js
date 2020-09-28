@@ -19,7 +19,6 @@ return  `  <fieldset class="newsEntryForm">
         `
 }
 
-
 // Click event for Save button for New Articles
 // Gathers the input values and saves to the Database.json
 const newsContainer = document.querySelector(".news")
