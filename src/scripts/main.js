@@ -1,8 +1,8 @@
 // Authored by Terra Roush
 
-import { LoginForm } from "./auth/LoginForm.js"
-import { RegisterForm } from "./auth/RegisterForm.js"
-import { Nutshell } from "./Nutshell.js"
+import { LoginForm } from "./auth/LoginForm.js";
+import { RegisterForm } from "./auth/RegisterForm.js";
+import { Nutshell } from "./Nutshell.js";
 import { WelcomeUser } from "./WelcomeUser.js";
 
 /*
@@ -30,9 +30,9 @@ if (activeUser) {
     WelcomeUser()
     dashContainer.classList.remove("hideDashboard");
     authContainer.classList.add("hideAuth");
-// otherwise display login/register
-} else {
+    // otherwise display login/register
+  } else {
     LoginForm();
     RegisterForm();
     dashContainer.classList.add("hideDashboard");
-}
+  }

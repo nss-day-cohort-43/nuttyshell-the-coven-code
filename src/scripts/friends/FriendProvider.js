@@ -11,7 +11,6 @@ export const getFriends = activeUser => {
     return fetch (`http://localhost:8088/friends/?myUserId=${convertedActiveUser}&_expand=user`)
     .then(response => response.json())
     .then(parsedFriends => {
-        console.log(parsedFriends)
         friends = parsedFriends
     })
 }
