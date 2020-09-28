@@ -23,7 +23,7 @@ const dashContainer = document.getElementById("dashContainer");
 const activeUser = sessionStorage.getItem("activeUser")
 // if there is an activeUser, that means they've been here before so load the dashboard components(also reveal dashboard and hide login/reg)
 if (activeUser) {
-    Nutshell()
+    Nutshell(activeUser)
     WelcomeUser()
     dashContainer.classList.remove("hideDashboard");
     authContainer.classList.add("hideAuth");
