@@ -1,7 +1,7 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
-
+import { WelcomeUser } from "./WelcomeUser.js";
 
 /*
     1. Check if the user is authenticated by looking in session storage for `activeUser`
@@ -10,7 +10,21 @@ import { Nutshell } from "./Nutshell.js"
     4. Also, if the user authenticates, and the login form is initially shown
         ensure that the Nutshell component gets rendered
 */
+const eventHub = document.querySelector('.container');
+const authContainer = document.getElementById("authContainer");
+const dashContainer = document.getElementById("dashContainer");
 
-Nutshell();
-LoginForm();
-RegisterForm();
+// on page load, go to session storage and see if there is a key defined as activeUser, store that in a variable
+const activeUser = sessionStorage.getItem("activeUser")
+// if there is an activeUser, that means they've been here before so load the dashboard components(also reveal dashboard and hide login/reg)
+if (activeUser) {
+    Nutshell()
+    WelcomeUser()
+    dashContainer.classList.remove("hideDashboard");
+    authContainer.classList.add("hideAuth");
+// otherwise display login/register
+} else {
+    LoginForm();
+    RegisterForm();
+    dashContainer.classList.add("hideDashboard");
+}

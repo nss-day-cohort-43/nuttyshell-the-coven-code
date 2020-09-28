@@ -45,3 +45,7 @@
     background-color: cornsilk;
     margin: .5em;
 }
+
+.hideDashboard {
+    display: none;
+}
