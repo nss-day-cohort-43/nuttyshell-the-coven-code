@@ -50,3 +50,7 @@
     border: 3px solid black;
     margin: .5em;
 }
+
+.hideDashboard {
+    display: none;
+}

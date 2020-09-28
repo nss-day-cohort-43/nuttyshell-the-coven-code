@@ -15,8 +15,11 @@
     justify-content: center;
 }
 
-.toggleAuth {
+/* this class is added to hide the login/registration after authentication */
+.hideAuth {
     display: none;
 }
+
+
 
 
