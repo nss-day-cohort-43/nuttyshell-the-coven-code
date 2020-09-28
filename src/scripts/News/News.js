@@ -27,7 +27,6 @@ newsContainer.addEventListener("click", e => {
     if(e.target.id === "addNews"){
     newsContainer.innerHTML = newNewsArticle()
     } else if(e.target.id === "closeNewArticle"){
-        // debugger;
         allTheNews()
     }
 })
