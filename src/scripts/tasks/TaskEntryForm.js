@@ -35,5 +35,7 @@ export const renderTaskForm = () => {
             </fieldset>
             <button type="button" id="saveTask">Save Task</button>
         </form>
-    `
+        `
+
+        contentTarget.innerHTML = form
 }

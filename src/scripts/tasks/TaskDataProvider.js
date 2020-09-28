@@ -1,9 +1,20 @@
+// Authored by Hanako Hashiguchi
+
 const eventHub = document.querySelector(".container")
 
 let tasks = []
 
 const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("taskStateChange"))
+}
+
+export const useTaskEntries = () => {
+    //This sorts the tasks by due date
+    const sortedByDate = tasks.sort(
+        (currentEntry, nextEntry) =>
+            Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+    )
+    return sortedByDate
 }
 
 export const getTaskEntries = () => {
@@ -14,7 +25,7 @@ export const getTaskEntries = () => {
         })
 }
 
-export const saveTaskEntry = newTaskEntry => {
+export const saveTaskEntry = (newTaskEntry) => {
     return fetch("http://localhost:8088/tasks", {
         method: "POST",
         headers: {
@@ -25,8 +36,19 @@ export const saveTaskEntry = newTaskEntry => {
         .then(dispatchStateChangeEvent)
 }
 
-export const deleteTaskEntry = deletedTaskEntry => {
-    return fetch(`http://localhost:8088/entries/${deletedTaskEntry.id}`, {
+export const completeTaskEntry = (completeTaskEntry) => {
+    return fetch(`http://localhost:8088/tasks/${completeTaskEntry.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(completeTaskEntry)
+    })
+    .then(dispatchStateChangeEvent)
+}
+
+export const deleteTaskEntry = (deletedTaskEntry) => {
+    return fetch(`http://localhost:8088/tasks/${deletedTaskEntry.id}`, {
         method: "DELETE"
     })
         .then(dispatchStateChangeEvent) 
