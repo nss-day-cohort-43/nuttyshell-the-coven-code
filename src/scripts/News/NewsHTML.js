@@ -1,3 +1,4 @@
+// Tristan
 import { singleNewsArticle, editNewsEntry } from "./NewsDataProvider.js";
 const newsContainer = document.querySelector(".news")
 
@@ -12,8 +13,8 @@ export const newsHtmlFormat = (newsArticle) => {
         ${newsArticle.map(news => {
          return `
            <div id="article--${news.id}" class="articleContainer"> 
-            <a id="articleTag--${news.id}" class="newsTitle" href="${news.url}" target="_blank" contenteditable="false">"${news.title}"</a><br>
-            <p id="newsDescription--${news.id}" contenteditable="false">-${news.synopsis}</p>
+            <a id="articleTag--${news.id}" class="newsTitle" href="${news.url}" target="_blank">"${news.title}"</a><br>
+            <p id="newsDescription--${news.id}">-${news.synopsis}</p>
             <button id="edit--${news.id}" class="edit" title="Edit">✎</button><button id="delete--${news.id}" class="delete" title="Delete">✘</button>
            </div> 
             `

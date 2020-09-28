@@ -1,3 +1,4 @@
+// Tristan
 import { saveNewsEntry } from "./NewsDataProvider.js";
 
 const newsContainer = document.querySelector(".news");

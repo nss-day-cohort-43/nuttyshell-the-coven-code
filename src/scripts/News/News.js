@@ -1,3 +1,4 @@
+// Tristan
 import { useNews, getNews, deleteNewsEntry } from "./NewsDataProvider.js";
 import { newsHtmlFormat } from "./NewsHTML.js";
 import { newNewsArticle } from "./NewsInput.js";
@@ -24,7 +25,8 @@ newsContainer.addEventListener("click", e => {
     if(e.target.id === "addNews"){
     newsContainer.innerHTML = newNewsArticle()
     } else if(e.target.id === "closeNewArticle"){
-        newsContainer.innerHTML = allTheNews()
+        // debugger;
+        allTheNews()
     }
 })
 
