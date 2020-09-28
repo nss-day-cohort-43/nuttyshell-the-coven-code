@@ -31,7 +31,7 @@ const sorting = (sortObj) => {
     })
 }
 
-// Event listener for Edit button to populater newsContainer innerHTML
+// Event listener for Edit button to populate newsContainer innerHTML
 // with inputs fields to edit the current article
 // and also includes a Save button
 newsContainer.addEventListener("click", e => {

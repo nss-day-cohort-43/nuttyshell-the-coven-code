@@ -24,7 +24,6 @@
 .articleContainer input {
     display: flex;
     margin: 5px;
-    min-width: max-content;
 }
 .articleSaveBtn {
     margin: 5px;

@@ -12,7 +12,7 @@ return  `  <fieldset class="newsEntryForm">
 
 
                 <label for="newsUrl">Link</label>
-                <input type="text" name="newsUrl" id="newsUrl">
+                <input type="text" name="newsUrl" id="newsUrl" value="https://">
 
 
                 <label for="newsDescription">About</label>
