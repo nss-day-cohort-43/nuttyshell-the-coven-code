@@ -17,10 +17,14 @@ export const allTheNews = () => {
 }
 
 // Click event that targets the Plus Sign of News container 
-// and sets that container 
+// and sets that container for new input, but if container is on the input
+// page an X appears, and checks for closeNewArticle Id to enable
+// closing the page to return to all current Articles Rendered
 newsContainer.addEventListener("click", e => {
     if(e.target.id === "addNews"){
     newsContainer.innerHTML = newNewsArticle()
+    } else if(e.target.id === "closeNewArticle"){
+        newsContainer.innerHTML = allTheNews()
     }
 })
 

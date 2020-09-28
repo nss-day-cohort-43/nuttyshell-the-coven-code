@@ -1,9 +1,12 @@
 import { saveNewsEntry } from "./NewsDataProvider.js";
 
+const newsContainer = document.querySelector(".news");
+
 // Displays the Input format for entering new article information
 // and a Save button
 export const newNewsArticle = () => {
 return  `  <fieldset class="newsEntryForm">
+                <div id="closeNewArticle">X</div>
                 <label for="newsTitle">Title</label>
                 <input type="text" name="newsTitle" id="newsTitle">
 
@@ -21,8 +24,6 @@ return  `  <fieldset class="newsEntryForm">
 
 // Click event for Save button for New Articles
 // Gathers the input values and saves to the Database.json
-const newsContainer = document.querySelector(".news")
-
 newsContainer.addEventListener("click", e => {
     const urlInput = document.querySelector("#newsUrl");
     const newsTitle = document.querySelector("#newsTitle");
@@ -39,3 +40,4 @@ newsContainer.addEventListener("click", e => {
     saveNewsEntry(newArticle)
 }}
 )
+  

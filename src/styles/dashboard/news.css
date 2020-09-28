@@ -29,7 +29,12 @@
 .articleSaveBtn {
     margin: 5px;
 }
-
+#closeNewArticle {
+    text-align: right;
+}
+#closeNewArticle:hover {
+    cursor: pointer;
+}
 #addNews {
     font-size: 2em;
     font-weight: bold;
