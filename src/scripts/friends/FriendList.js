@@ -27,12 +27,15 @@ friendsContainer.addEventListener("click", e => {
             const parsedId = parseInt(id)
             const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
             const currentFriends = useFriends()
-            debugger
             if (activeUser !== parsedId) {
-                if (currentFriends !== null) {
+                if (currentFriends.length === 0) {
+                    console.log("NO FRIENDS IN LIST")
+                } else {
                     currentFriends.map(friend => {
                         if (friend.user.id !== parsedId) {
                             return console.log("NOT ON FRIENDS LIST")
+                        } else {
+                            return console.log("ON FRIENDS LIST")
                         }
                     })
                 }
