@@ -1,0 +1,29 @@
+/* The script that sets the scroll bar is based on the .post__list height value.
+To ensure scroll bar works correctly, I *think* we have to set a specific height value on .post__list. */
+
+.post__list {
+    background-color: lightblue;
+    padding: 5px;
+    height: 200px;
+    /* I set the overflow only on the Y axis, because I didn't want
+    the bottom scroll bar to ever show up. But maybe that's not how overflow-y works!*/
+    overflow-y: auto;
+}
+
+.post__single {
+    background-color: lavender;
+    width: 80%;
+    margin: 5px 0 0 5px;
+    padding-bottom: 5px;
+}
+
+/* Test to differentiate active user's posts from non-active */
+.single__active {
+    background-color: orange;
+}
+
+.post__new {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: lightcoral;
+}
