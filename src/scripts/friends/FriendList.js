@@ -31,11 +31,7 @@ friendsContainer.addEventListener("click", e => {
             if (activeUser !== parsedId) {
                 // If there are no friends in your friends list, add friend
                 if (currentFriends.length === 0) {
-                    const newFriend = {
-                        myUserId: activeUser,
-                        userId: parsedId
-                    }
-                    saveNewFriend(newFriend);
+                    addFriendToList(activeUser, parsedId)
                 } else {
                     // If there are friends in your friends list.
                     // Check to ensure the clicked user is not already added.
@@ -43,7 +39,7 @@ friendsContainer.addEventListener("click", e => {
                     if (friendOnList) {
                         console.log("YOU ON MY LIST")
                     } else {
-                        console.log("YOU NOT ON MY LIST")
+                        addFriendToList(activeUser, parsedId)
                     }
                 }
             }
@@ -60,4 +56,12 @@ export const listFriends = (activeUser) => {
 
 const renderFriends = (friendsArray) => {
     friendsContainer.innerHTML = friendsHtmlFormat(friendsArray)
+}
+
+const addFriendToList = (activeUser, friendUserId) => {
+    const newFriend = {
+        myUserId: activeUser,
+        userId: friendUserId
+    }
+    saveNewFriend(newFriend);
 }
