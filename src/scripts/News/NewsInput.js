@@ -31,14 +31,19 @@ newsContainer.addEventListener("click", e => {
     const newsDescription = document.querySelector("#newsDescription")
 
     if(e.target.id === "newsSave"){
-    const newArticle = {
-        url: urlInput.value,
-        title: newsTitle.value,
-        synopsis: newsDescription.value,
-        currentTimeStamp: new Date().getTime(),
-        userId: parseInt(sessionStorage.getItem("activeUser"))
+
+        if(newsContainer.value || newsDescription.value  !== "") {
+            const newArticle = {
+                url: urlInput.value,
+                title: newsTitle.value,
+                synopsis: newsDescription.value,
+                currentTimeStamp: new Date().getTime(),
+                userId: parseInt(sessionStorage.getItem("activeUser"))
+            }
+            saveNewsEntry(newArticle)
+            } else {
+            alert("Please Complete all fields")
+        }
     }
-    saveNewsEntry(newArticle)
-}}
-)
+})
   
