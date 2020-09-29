@@ -1,6 +1,6 @@
 // Authored by Tristan Wyatt & Sam Edwards
 
-import { getFriends, useFriends } from "./FriendProvider.js"
+import { getFriends, saveNewFriend, useFriends } from "./FriendProvider.js"
 import { friendsHtmlFormat } from "./FriendsHTML.js"
 
 const eventHub = document.querySelector(".container")
@@ -27,17 +27,24 @@ friendsContainer.addEventListener("click", e => {
             const parsedId = parseInt(id)
             const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
             const currentFriends = useFriends()
+            // Check to ensure you're not clicking on the activeUser
             if (activeUser !== parsedId) {
+                // If there are no friends in your friends list, add friend
                 if (currentFriends.length === 0) {
-                    console.log("NO FRIENDS IN LIST")
+                    const newFriend = {
+                        myUserId: activeUser,
+                        userId: parsedId
+                    }
+                    saveNewFriend(newFriend);
                 } else {
-                    currentFriends.map(friend => {
-                        if (friend.user.id !== parsedId) {
-                            return console.log("NOT ON FRIENDS LIST")
-                        } else {
-                            return console.log("ON FRIENDS LIST")
-                        }
-                    })
+                    // If there are friends in your friends list.
+                    // Check to ensure the clicked user is not already added.
+                    const friendOnList = currentFriends.find(friend => friend.user.id === parsedId)
+                    if (friendOnList) {
+                        console.log("YOU ON MY LIST")
+                    } else {
+                        console.log("YOU NOT ON MY LIST")
+                    }
                 }
             }
         }
