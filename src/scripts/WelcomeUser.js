@@ -7,7 +7,7 @@ const welcomeTarget = document.querySelector(".dash--header")
 const activeUsername = sessionStorage.getItem("username")
 // if this exists, put this message in the dom target
 if (activeUsername) {
-    welcomeTarget.innerHTML = `<h3>Witchy Salutations, ${activeUsername}!</h3>`;
+    welcomeTarget.innerHTML = `<div><h3>Witchy Salutations, ${activeUsername}!</h3></div>`;
     // otherwise put this in the dom
 } else {
     welcomeTarget.innerHTML = `<div><h3>Welcome to Nutshell! May all your spells cast the first time!</h3></div>`
