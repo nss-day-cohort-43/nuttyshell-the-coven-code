@@ -1,12 +1,11 @@
 // Authored by Audrey Thomasson
 
-const eventHub = document.querySelector(".events")
+const eventContainer = document.querySelector(".events")
 
 const dispatchStateChangeEvent = () => {
     const entryStateChangedEvent = new CustomEvent("entryStateChanged")
 
-    eventHub.dispatchEvent(entryStateChangedEvent)
-
+    eventContainer.dispatchEvent(entryStateChangedEvent)
 }
 
 let events = []

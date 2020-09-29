@@ -1,19 +1,20 @@
 // Authored by Audrey Thomasson
 // This is the module for the list of all the events for a 
 // user and eventually their friends
+// Listens for clicks on the addEvent, deleteEvent, weather buttons
 
 import { getEvents, useEvents, deleteEvent } from "./EventDataProvider.js";
 import { eventForm } from "./EventForm.js";
 import { eventBoxHTML } from "./EventHTML.js";
 
+
 // DOM reference to the event container
-const eventHub = document.querySelector(".events") 
 const eventContainer = document.querySelector(".events") 
 
-// listens for either a saveEvent or deleteEvent and then re-renders the 
+// listens for either a saveEvent, deleteEvent, or cancel form and then re-renders the 
 // updated list of events
-eventHub.addEventListener('entryStateChanged', event => {
-    const userId = sessionStorage.getItem("id") 
+eventContainer.addEventListener('entryStateChanged', event => {
+    const userId = sessionStorage.getItem("activeUser") 
     EventList(userId)
 })
 
@@ -31,24 +32,13 @@ eventContainer.addEventListener("click", clickEvent => {
         const removeThisEvent = clickEvent.target.value
         deleteEvent(removeThisEvent)
     }
-
-    if (clickEvent.target.id === "weather") {
-        const weatherZip = clickEvent.target.value
-         if 
-
-            // CHECK IN HERE IF THE DATE OF THE EVENT IS CLOSE ENOUGH
-            weatherDetail(weatherZip)
-        } else {
-            alert("Weather available when event is within 5 days.")
-        }
-    }
 })
 
 
 
 
 
-// this EventList is called by the main.js to render the initial
+// this EventList is called by the nutshell.js to render the initial
 // list of entries of the active user
 export const EventList = (userId) => {
     getEvents(userId)

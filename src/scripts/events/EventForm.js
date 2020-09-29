@@ -6,13 +6,20 @@ import {saveEvent} from './EventDataProvider.js'
 
 const eventContainer = document.querySelector(".events")
 
+const dispatchStateChangeEvent = () => {
+    const entryStateChangedEvent = new CustomEvent("entryStateChanged")
+
+    eventContainer.dispatchEvent(entryStateChangedEvent)
+}
+
+
 // listens for notice that someone clicked on the + to add event
 // calls the eventForm below
 eventContainer.addEventListener('wantToAddEvent', event => {  
     eventForm()
 })
 
-// code below listens for new event enry then tells saveEvent 
+// code below listens for new event entry then tells saveEvent 
 // to go save the new event to the database
 eventContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
@@ -21,7 +28,7 @@ eventContainer.addEventListener("click", clickEvent => {
         const time = document.querySelector('#time')
         const location = document.querySelector('#location')
         const zipcode = document.querySelector('#zipcode')
-        const userId = sessionStorage.getItem("id")
+        const userId = sessionStorage.getItem("activeUser")
 
         const newEvent = {
             name: name.value,
@@ -33,7 +40,9 @@ eventContainer.addEventListener("click", clickEvent => {
         }
         
         saveEvent(newEvent)
- 
+    }
+    if (clickEvent.target.id === "cancelEvent") {
+        dispatchStateChangeEvent()
     }
 })
 
@@ -58,12 +67,13 @@ export const eventForm = () => {
             <input type="text" id="location" name="location">
             </fieldset>
             <fieldset>
-            <label for="zipcode">Location Zipcode:</label>
+            <label for="zipcode">Location Zip Code:</label>
             <input type="text" id="zipcode" name="zipcode">
             </fieldset>
             <br>   
             </form>        
             <button type="button" id="saveEvent">Save</button>
+            <button type="button" id="cancelEvent">Cancel</button>
         `
     
 }
