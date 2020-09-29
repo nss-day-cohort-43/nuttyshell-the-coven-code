@@ -3,8 +3,8 @@
 import { LoginForm } from "./auth/LoginForm.js";
 import { RegisterForm } from "./auth/RegisterForm.js";
 import { Nutshell } from "./Nutshell.js";
-import { WelcomeUser } from "./header/WelcomeUser.js";
-import { authHeaderRender } from "../scripts/header/authHeader.js";
+import { WelcomeUser } from "./authHeader/WelcomeUser.js";
+import { authHeaderRender } from "./authHeader/authHeader.js";
 import { saveEvent } from "./events/EventDataProvider.js"
 
 /*

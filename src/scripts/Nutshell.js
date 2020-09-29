@@ -1,9 +1,9 @@
-import { RenderLogout } from "./header/logout/LogoutComponent.js";
+import { RenderLogout } from "./authHeader/logout/LogoutComponent.js";
 import { allTheNews } from "./News/News.js"
 import { EventList } from "./events/EventList.js"
 import { listPosts } from "./posts/PostList.js"
 import { listFriends } from "./friends/FriendList.js"
-import {  WelcomeUser, WelcomeActiveUser } from "./header/WelcomeUser.js"
+import {  WelcomeUser, WelcomeActiveUser } from "./authHeader/WelcomeUser.js"
 import { friend } from "./friends/FriendInput.js";
 
 
