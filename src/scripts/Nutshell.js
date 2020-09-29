@@ -1,4 +1,4 @@
-import { LogoutBtn } from "./logout/LogoutComponent.js";
+import { LogoutBtn } from "./header/logout/LogoutComponent.js";
 import { allTheNews } from "./News/News.js"
 import { EventList } from "./events/EventList.js"
 import { listPosts } from "./posts/PostList.js"

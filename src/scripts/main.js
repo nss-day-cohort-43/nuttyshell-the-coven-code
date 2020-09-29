@@ -3,7 +3,8 @@
 import { LoginForm } from "./auth/LoginForm.js";
 import { RegisterForm } from "./auth/RegisterForm.js";
 import { Nutshell } from "./Nutshell.js";
-import { WelcomeUser } from "./WelcomeUser.js";
+import { WelcomeUser } from "./header/WelcomeUser.js";
+import { authHeaderRender } from "../scripts/header/authHeader.js";
 import { saveEvent } from "./events/EventDataProvider.js"
 
 
@@ -28,13 +29,14 @@ export const verifyActiveUser = activeUser => {
 // This script only runs once, on initial page load.
 // if there is an activeUser, that means they've been here before so load the dashboard components(also reveal dashboard and hide login/reg)
 if (activeUser) {
-    Nutshell(activeUser)
-    WelcomeUser()
-    dashContainer.classList.remove("hideDashboard");
-    authContainer.classList.add("hideAuth");
-    // otherwise display login/register
-  } else {
-    LoginForm();
-    RegisterForm();
-    dashContainer.classList.add("hideDashboard");
-  }
+  Nutshell(activeUser)
+  WelcomeUser()
+  dashContainer.classList.remove("hideDashboard");
+  authContainer.classList.add("hideAuth");
+  // otherwise display login/register
+} else {
+  authHeaderRender()
+  LoginForm();
+  RegisterForm();
+  dashContainer.classList.add("hideDashboard");
+}
