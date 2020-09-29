@@ -1,10 +1,12 @@
 // Authored by Tristan Wyatt
-import { listFriends } from "./FriendList.js"
 import { getUser, saveNewFriend } from "./FriendProvider.js"
+
+const friendsContainer = document.querySelector(".friends")
 
 // Populates the friend container with an input field to add a new friend
  const addFriend = () => {
-    return ` <label for="newFriend">Add Friend</label>
+    return `<div id="closeAddFriend">X</div>
+            <label for="newFriend">Add Friend</label>
              <input type="text" name="newFriend" id="friendInput">
              <button type="button" id="addNewFriend">ADD</button>
     
@@ -12,8 +14,6 @@ import { getUser, saveNewFriend } from "./FriendProvider.js"
 }
 
 // const addFriend = document.querySelector("#addFriend");
-const friendsContainer = document.querySelector(".friends")
-
 export const friend = () => {
 friendsContainer.addEventListener("click", e => {
     if(e.target.id === "addFriend") {
@@ -22,7 +22,7 @@ friendsContainer.addEventListener("click", e => {
 })
 }
  
-let userId = (parseInt(sessionStorage.getItem("activeUser")))
+
 // Event listener for adding a new friend, when the user enters a username
 // It will send that user to the database as a new friend relationship
 // and re render the friends list
@@ -35,7 +35,6 @@ friendsContainer.addEventListener("click", e => {
             myUserId: parseInt(sessionStorage.getItem("activeUser")),
             userId: parseInt(user.map(user => user.id).join(""))
         }
-        
         saveNewFriend(newFriend)
     })
 }
