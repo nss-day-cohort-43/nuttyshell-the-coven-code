@@ -3,20 +3,15 @@ import { completeTaskEntry } from "./TaskDataProvider.js"
 const tasksContainer = document.querySelector(".tasks")
 
 tasksContainer.addEventListener("click", clickEvent => {
+    debugger;
     if(clickEvent.target.id.startsWith("complete--")) {
         const [prefix, id] = clickEvent.target.id.split("--")
         const numId = parseInt(id)
-        const taskInput = document.querySelector(`#taskName--${numId}`)
-        const dueDateInput = document.querySelector(`#dueDate--${numId}`)
-        const userId = sessionStorage.getItem("activeUser")
-        debugger;
-            const newTask = {
-                name: taskInput.value,
-                complete: true,
-                dueDate: dueDateInput.value,
-                userId: parseInt(userId)
-            }
-            completeTaskEntry(numId, newTask)
+        if(clickEvent.target.checked === true){
+            completeTaskEntry(numId, true)
+        } else {
+            completeTaskEntry(numId, false)
+        }       
     }
 })
 

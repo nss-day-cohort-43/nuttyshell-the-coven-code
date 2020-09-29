@@ -36,13 +36,13 @@ export const saveTaskEntry = (newTaskEntry) => {
         .then(dispatchStateChangeEvent)
 }
 
-export const completeTaskEntry = (entryId, completeTaskEntry) => {
+export const completeTaskEntry = (entryId, completeTrueFalse) => {
     return fetch(`http://localhost:8088/tasks/${entryId}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(completeTaskEntry)
+        body: JSON.stringify({complete: completeTrueFalse})
     })
     .then(dispatchStateChangeEvent)
 }
