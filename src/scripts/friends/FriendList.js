@@ -36,9 +36,7 @@ friendsContainer.addEventListener("click", e => {
                     // If there are friends in your friends list.
                     // Check to ensure the clicked user is not already added.
                     const friendOnList = currentFriends.find(friend => friend.user.id === parsedId)
-                    if (friendOnList) {
-                        console.log("YOU ON MY LIST")
-                    } else {
+                    if (friendOnList === undefined) {
                         addFriendToList(activeUser, parsedId)
                     }
                 }
@@ -63,6 +61,5 @@ const addFriendToList = (activeUser, friendUserId) => {
         myUserId: activeUser,
         userId: friendUserId
     }
-    debugger
     saveNewFriend(newFriend);
 }
