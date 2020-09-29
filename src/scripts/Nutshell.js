@@ -1,5 +1,6 @@
 import { RenderLogout } from "./logout/LogoutComponent.js";
 import { allTheNews } from "./News/News.js"
+import { EventList } from "./events/EventList.js"
 import { listPosts } from "./posts/PostList.js"
 import { listFriends } from "./friends/FriendList.js"
 
@@ -9,6 +10,7 @@ export const Nutshell = (activeUser) => {
     const parsedActiveUser = parseInt(activeUser)
     RenderLogout();
     allTheNews()
+    EventList(parsedActiveUser);
     listPosts(parsedActiveUser);
     listFriends(parsedActiveUser);
 }
