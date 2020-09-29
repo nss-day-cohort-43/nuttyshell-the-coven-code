@@ -13,7 +13,8 @@ const eventHub = document.querySelector(".container")
 
 // When changes to posts occur, re-render notes
 eventHub.addEventListener("postStateChanged", e => {
-    listPosts();
+    const activeUser = parseInt(sessionStorage.getItem("activeUser"))
+    listPosts(activeUser);
 })
 
 // Listen for button clicks in Posts section
@@ -50,12 +51,12 @@ eventHub.addEventListener("click", e => {
 })
 
 // List entire Posts Section on DOM
-export const listPosts = () => {
+export const listPosts = (activeUser) => {
     getPosts()
     .then(() => {
         const posts = usePosts()
         const sortedPosts = sortPosts(posts)
-        renderPostDashboard(sortedPosts);
+        renderPostDashboard(activeUser, sortedPosts);
     })
 }
 
@@ -71,9 +72,9 @@ const postBoxScroll = () => {
 }
 
 // Render entire Posts Section
-const renderPostDashboard = (sortedPostArray) => {
+const renderPostDashboard = (activeUser, sortedPostArray) => {
     const targetElement = document.querySelector(".posts")
-    targetElement.innerHTML = postBoxHTML(sortedPostArray);
+    targetElement.innerHTML = postBoxHTML(activeUser, sortedPostArray);
     targetElement.innerHTML += newPostHTML();
     // Ensures scroll bar is always at bottom
     postBoxScroll();

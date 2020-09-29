@@ -1,10 +1,16 @@
+import { LogoutBtn } from "./logout/LogoutComponent.js";
 import { allTheNews } from "./News/News.js"
 import { listPosts } from "./posts/PostList.js"
 import { Tasks } from "./tasks/Tasks.js"
+import { listFriends } from "./friends/FriendList.js"
 
-export const Nutshell = () => {
+export const Nutshell = (activeUser) => {
     // Render all your UI components here
-    Tasks()
+    // Must convert activeUser from string to integer
+    const parsedActiveUser = parseInt(activeUser)
+    LogoutBtn();
     allTheNews()
-    listPosts();
+    listPosts(parsedActiveUser);
+    listFriends(parsedActiveUser);
+    Tasks();
 }

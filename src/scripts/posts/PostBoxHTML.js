@@ -1,8 +1,6 @@
 // Authored by Sam Edwards
 // Module goal: generate HTML for currently saved posts
 
-const activeUser = parseInt(sessionStorage.getItem("activeUser"))
-
 // Generates date HTML and checks if post has been edited. If so, add edited time stamp
 export const checkDate = (post) => {
     const originalTimeStamp = `<span class="single__originalTimeStamp">posted at ${new Date(post.originalTimeStamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} -</span>`
@@ -14,7 +12,7 @@ export const checkDate = (post) => {
 // Generate HTML for entire post box section ("post box" is like a "chat box")
     // Includes if-else check so only activeUsers can delete their own posts.
     // Also allows for activeUsers to have unique styling.
-export const postBoxHTML = (postArray) => {
+export const postBoxHTML = (activeUser, postArray) => {
     return `
         <h2>Posts</h2>
         <div class="post__list">
