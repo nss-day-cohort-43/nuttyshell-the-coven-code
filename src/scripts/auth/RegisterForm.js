@@ -12,8 +12,8 @@ const dashContainer = document.getElementById("dashContainer");
 
 //when a user is deemed legit, a classlist is added to the entire authorization container to make it disappear.
 eventHub.addEventListener("userAuthenticated", (e) => {
-    authContainer.classList.add("hideAuth");
-    dashContainer.classList.remove("hideDashboard");
+  authContainer.classList.add("hideAuth");
+  dashContainer.classList.remove("hideDashboard");
 });
 
 eventHub.addEventListener("click", (e) => {
@@ -55,7 +55,7 @@ eventHub.addEventListener("click", (e) => {
                   sessionStorage.setItem("zipcode", newUser.zipcode);
                   // tell the app that the user has been made legit
                   eventHub.dispatchEvent(new CustomEvent("userAuthenticated"));
-                  Nutshell()
+                  Nutshell(sessionStorage.getItem("activeUser"))
                 });
             } else {
               window.alert("Username already exists!");
