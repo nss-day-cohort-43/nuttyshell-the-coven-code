@@ -5,7 +5,6 @@ import { friendsHtmlFormat } from "./FriendsHTML.js"
 
 const eventHub = document.querySelector(".container")
 const friendsContainer = document.querySelector(".friends")
-let userId = (parseInt(sessionStorage.getItem("activeUser")))
 
 // Event listener for when friends are added/removed, re-render
 
@@ -25,13 +24,15 @@ const renderFriends = (friendsArray) => {
 
 // Event listener that listens for friendStateChanged and re renders our friend list
 eventHub.addEventListener("friendStateChanged", () => {
-    listFriends(userId)
+    const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+    listFriends(activeUser)
 })
 
 // Event Listener that closes the Add Friend section upon clicking the X
 friendsContainer.addEventListener("click", e => {
     if(e.target.id === "closeAddFriend"){
-        listFriends(userId)
+        const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+        listFriends(activeUser)
     }
 })
 
