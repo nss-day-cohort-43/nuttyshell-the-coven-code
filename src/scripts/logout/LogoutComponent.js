@@ -17,3 +17,12 @@ eventHub.addEventListener("click", e => {
         authContainer.classList.remove("hideAuth");
     }
 })
+
+// defines a variable to target the header of dashboard
+const logoutTarget = document.querySelector(".dash--header");
+
+// function that creates logout button on dashboard
+export const RenderLogout = () => {
+    logoutTarget.innerHTML += 
+      `<div><button id="logoutBtn">Logout</button></div>`
+}
