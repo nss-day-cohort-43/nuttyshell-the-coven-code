@@ -8,7 +8,7 @@ export const Nutshell = (activeUser) => {
     // Render all your UI components here
     // Must convert activeUser from string to integer
     const parsedActiveUser = parseInt(activeUser)
-    RenderLogout();
+    RenderLogout(parsedActiveUser);
     allTheNews()
     EventList(parsedActiveUser);
     listPosts(parsedActiveUser);

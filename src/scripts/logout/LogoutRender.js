@@ -1,2 +1,0 @@
-// Authored by Terra Roush
-

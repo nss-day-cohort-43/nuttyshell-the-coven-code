@@ -22,7 +22,9 @@ eventHub.addEventListener("click", e => {
 const logoutTarget = document.querySelector(".dash--header");
 
 // function that creates logout button on dashboard
-export const RenderLogout = () => {
+export const RenderLogout = (userId) => {
+  // if there is an active user, then render this button
+  if (userId)
     logoutTarget.innerHTML += 
       `<div><button id="logoutBtn">Logout</button></div>`
 }
