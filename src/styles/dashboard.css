@@ -14,7 +14,6 @@
 
 .dash--header {
     grid-area: header;
-    /* background-color: #1b5c8f; */
     background-color: #314650;
     margin: 1em, 1em, .25em, 1em;
     height: 7.8125rem;
