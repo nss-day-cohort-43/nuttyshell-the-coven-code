@@ -1,12 +1,12 @@
 // Authored by Tristan Wyatt & Sam Edwards & Terra Roush
 
-
 const eventHub = document.querySelector(".container")
 
 let friends = []
 
 const dispatchFriendStateChangeEvent = () => {
     const friendChangedEvent = new CustomEvent("friendStateChanged");
+    // Store our friends in a detail to be used later
     eventHub.dispatchEvent(friendChangedEvent);
 }
 
@@ -22,6 +22,7 @@ export const getFriends = activeUser => {
 }
 
 export const saveNewFriend = (friendObj) => {
+    const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
     fetch("http://localhost:8088/friends/", {
         method: "POST",
         headers: {
@@ -29,6 +30,7 @@ export const saveNewFriend = (friendObj) => {
         },
         body: JSON.stringify(friendObj)
     })
+    .then(getFriends(activeUser))
     .then(dispatchFriendStateChangeEvent)
 }
 

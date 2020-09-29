@@ -19,7 +19,7 @@ export const postBoxHTML = (activeUser, postArray) => {
             ${
                 postArray.map(post => {
                     // To reduce repeated strings, store username in variable
-                    const username = `<span class="single__username">${post.user.username}</span>`
+                    const username = `<span id="single__username--${post.user.id}"class="single__username">${post.user.username}</span>`
 
                     if (activeUser === post.userId) {
                         return `
