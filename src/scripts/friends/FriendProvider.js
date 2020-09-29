@@ -1,10 +1,14 @@
 // Authored by Tristan Wyatt & Sam Edwards & Terra Roush
 
-import { listFriends } from "./FriendList.js"
 
 const eventHub = document.querySelector(".container")
 
 let friends = []
+
+const dispatchFriendStateChangeEvent = () => {
+    const friendChangedEvent = new CustomEvent("friendStateChanged");
+    eventHub.dispatchEvent(friendChangedEvent);
+}
 
 export const useFriends = () => [...friends]
 
@@ -25,6 +29,7 @@ export const saveNewFriend = (friendObj) => {
         },
         body: JSON.stringify(friendObj)
     })
+    .then(dispatchFriendStateChangeEvent)
 }
 
 export const getUser = username => {

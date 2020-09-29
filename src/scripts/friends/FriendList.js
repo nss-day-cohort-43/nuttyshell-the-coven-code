@@ -5,6 +5,7 @@ import { friendsHtmlFormat } from "./FriendsHTML.js"
 
 const eventHub = document.querySelector(".container")
 const friendsContainer = document.querySelector(".friends")
+let userId = (parseInt(sessionStorage.getItem("activeUser")))
 
 // Event listener for when friends are added/removed, re-render
 
@@ -21,3 +22,7 @@ export const listFriends = (activeUser) => {
 const renderFriends = (friendsArray) => {
     friendsContainer.innerHTML = friendsHtmlFormat(friendsArray)
 }
+
+eventHub.addEventListener("friendStateChanged", () => {
+    listFriends(userId)
+})
