@@ -39,5 +39,4 @@ friendsContainer.addEventListener("click", e => {
     })
     .then(listFriends(userId))
     }
-    
 })
