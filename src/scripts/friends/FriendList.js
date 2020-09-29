@@ -8,7 +8,20 @@ const friendsContainer = document.querySelector(".friends")
 
 // Event listener for when friends are added/removed, re-render
 
-// Eventhub listeners for add friend button click, delete button click
+// eventHub listeners for add friend button click, delete button click
+    eventHub.addEventListener("click", e => {
+        if (e.target.id.startsWith("single__username--")) {
+            const [prefix, id] = e.target.id.split("--")
+            const parsedId = parseInt(id)
+            const activeUser = parseInt(sessionStorage.getItem("activeUser"))
+            if (activeUser !== parsedId) {
+                console.log("ADD ME TO YOUR FRIENDS LIST")
+                // Also check if you are or not on my friend's list.
+                // Needs a boolean check on the user id.
+                // Friends list item needs to have isOnFriendsList or something
+            }
+        }
+    })
 
 export const listFriends = (activeUser) => {
     getFriends(activeUser)
