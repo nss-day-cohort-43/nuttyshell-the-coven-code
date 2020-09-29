@@ -1,3 +1,4 @@
+// Authored by Tristan Wyatt
 import { listFriends } from "./FriendList.js"
 import { getUser, saveNewFriend } from "./FriendProvider.js"
 
