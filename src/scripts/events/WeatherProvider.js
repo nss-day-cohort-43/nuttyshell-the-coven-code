@@ -1,4 +1,3 @@
-EventWeatherProvider.js
 // Authored by Audrey Thomasson
 
 // Weather call for extended 5 day/ every 3 hour forecast to be used for upcoming events

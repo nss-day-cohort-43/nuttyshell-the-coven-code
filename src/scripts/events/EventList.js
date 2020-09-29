@@ -1,4 +1,3 @@
-import { usePosts } from "../posts/PostProvider.js";
 // Authored by Audrey Thomasson
 // This is the module for the list of all the events for a 
 // user and eventually their friends
