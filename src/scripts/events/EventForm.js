@@ -59,16 +59,16 @@ export const eventForm = () => {
                 <input type="date" name="date" id="date">
             </fieldset>
             <fieldset>
-            <label for="eventTime">Time:</label>
-            <input type="time" name="time" id="time">
+                <label for="eventTime">Time:</label>
+                <input type="time" name="time" id="time">
             </fieldset>
             <fieldset>
-            <label for="location">Name of Location:</label>
-            <input type="text" id="location" name="location">
+                <label for="location">Name of Location:</label>
+                <input type="text" id="location" name="location">
             </fieldset>
             <fieldset>
-            <label for="zipcode">Location Zip Code:</label>
-            <input type="text" id="zipcode" name="zipcode">
+                <label for="zipcode">Location Zip Code:</label>
+                <input type="text" id="zipcode" name="zipcode">
             </fieldset>  
             </form>        
             <button type="button" id="saveEvent">Save</button>

@@ -1,6 +1,8 @@
 @import "./dashboard/posts.css";
 
 .dashboard {
+    background-color: #2c1b0b;
+    color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr 3fr;
@@ -12,45 +14,40 @@
 
 .dash--header {
     grid-area: header;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    /* background-color: #1b5c8f; */
+    background-color: #314650;
+    margin: 1em, 1em, .25em, 1em;
     height: 7.8125rem;
 }
 
 .tasks {
     grid-area: tasks;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    background-color: #314650;
+    margin: .25em;
 } 
 
 .events {
     grid-area: events;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    background-color: #314650;
+    margin: .25em;
 }
 
 .news {
     grid-area: news;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    background-color: #314650;
+    margin: .25em;
 }
 
 .posts {
     grid-area: posts;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    background-color: #314650;
+    margin: .25em;
 }
 
 .friends {
     grid-area: friends;
-    background-color: cornsilk;
-    border: 3px solid black;
-    margin: .5em;
+    background-color: #314650;
+    margin: .25em;
 }
 
 .hideDashboard {

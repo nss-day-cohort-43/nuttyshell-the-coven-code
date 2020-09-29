@@ -2,6 +2,23 @@
 @import "dashboard.css";
 @import "dashboard/news.css";
 
+
+/* unvisited link */
+a:link {
+    color: #bb7615;
+  }
+  
+/* visited link */
+a:visited {
+    color: #6d93a6;
+;
+  }
+  
+/* mouse over link */
+a:hover {
+    color: #b8cad3;
+  }
+
 footer {
     text-align: center;
 }

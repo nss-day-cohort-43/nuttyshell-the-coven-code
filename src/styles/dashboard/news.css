@@ -1,7 +1,6 @@
 .news {
     position: relative;
     height: 18.75rem;
-    border-radius: 0.3125rem;
     overflow: auto;
 }
 .displayNone {
@@ -16,7 +15,7 @@
 }
 
 .articleContainer {
-    border: 3px solid black;
+    background-color: #446270;   
     margin: 3px;
     padding-left: 5px;
     padding-top: 5px;
@@ -59,15 +58,15 @@
 }
 
 .newsEntryForm label {
-    text-align: center;
-    font-weight: bolder;
+    /* text-align: center; */
+    /* font-weight: bolder; */
 }
 .newsEntryForm input {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    width: 21.875rem;
-    text-align: center;
-    margin: 1.25rem auto;
+    /* width: 21.875rem; */
+    /* text-align: center; */
+    /* margin: 1.25rem auto; */
 }
 #newsSave {
  margin: auto;
