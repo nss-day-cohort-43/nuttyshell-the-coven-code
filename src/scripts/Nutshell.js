@@ -3,6 +3,7 @@ import { allTheNews } from "./News/News.js"
 import { EventList } from "./events/EventList.js"
 import { listPosts } from "./posts/PostList.js"
 import { listFriends } from "./friends/FriendList.js"
+import { friend } from "./friends/FriendInput.js";
 
 export const Nutshell = (activeUser) => {
     // Render all your UI components here
@@ -14,3 +15,5 @@ export const Nutshell = (activeUser) => {
     listPosts(parsedActiveUser);
     listFriends(parsedActiveUser);
 }
+
+friend()

@@ -21,3 +21,18 @@ export const listFriends = (activeUser) => {
 const renderFriends = (friendsArray) => {
     friendsContainer.innerHTML = friendsHtmlFormat(friendsArray)
 }
+
+// Event listener that listens for friendStateChanged and re renders our friend list
+eventHub.addEventListener("friendStateChanged", () => {
+    const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+    listFriends(activeUser)
+})
+
+// Event Listener that closes the Add Friend section upon clicking the X
+friendsContainer.addEventListener("click", e => {
+    if(e.target.id === "closeAddFriend"){
+        const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+        listFriends(activeUser)
+    }
+})
+
