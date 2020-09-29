@@ -1,19 +1,9 @@
 // Authored by Hanako Hashiguchi
-import { getTaskEntries, useTaskEntries } from "./TaskDataProvider.js"
+
 import { taskEntry } from "./TaskEntry.js"
 import { Tasks } from "./Tasks.js"
 
 const eventHub = document.querySelector(".container")
-
-let taskArray = []
-
-// export const taskEntryList = () => {
-//     getTaskEntries()
-//         .then(() => {
-//             taskArray = useTaskEntries();
-//             addTasksToDOM(taskArray)
-//         })
-// }
 
 export const addTasksToDOM = arrayOfTasks => {
     const domElement = document.querySelector(".tasks")

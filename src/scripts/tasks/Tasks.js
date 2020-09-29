@@ -21,7 +21,7 @@ tasksContainer.addEventListener("click", clickEvent => {
     } else if(clickEvent.target.id === "closeAddTasks"){
         Tasks()
     }
-})
+});
 
 tasksContainer.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("delete--")){
@@ -30,3 +30,4 @@ tasksContainer.addEventListener("click", clickEvent => {
         deleteTaskEntry(taskToBeDeleted)
     }
 });
+
