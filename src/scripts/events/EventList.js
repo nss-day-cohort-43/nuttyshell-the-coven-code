@@ -1,3 +1,4 @@
+import { usePosts } from "../posts/PostProvider.js";
 // Authored by Audrey Thomasson
 // This is the module for the list of all the events for a 
 // user and eventually their friends
@@ -6,6 +7,7 @@
 import { getEvents, useEvents, deleteEvent } from "./EventDataProvider.js";
 import { eventForm } from "./EventForm.js";
 import { eventBoxHTML } from "./EventHTML.js";
+import { weatherDetail } from "./EventWeather.js"
 
 
 // DOM reference to the event container
@@ -32,7 +34,35 @@ eventContainer.addEventListener("click", clickEvent => {
         const removeThisEvent = clickEvent.target.value
         deleteEvent(removeThisEvent)
     }
+
+     
+    
+    
+     
+    
+    
+    
+    // Listens for a click on the weather button, checks if the event 
+    // is within 5 days of todays date
+    if (clickEvent.target.id === "weather") {
+        // *******CHECK IN HERE IF THE DATE OF THE EVENT IS CLOSE ENOUGH******
+        // I made this part up. I don't know if I can split a value on the --
+         const [zip, eventDate] = clickEvent.target.value.split("--")
+         const today = new Date();
+
+        //  if (eventDate - today <= 5) {
+        //      CALL weatherDetail from EventWeather.js an pass in eventDate & zip
+        //  } else {
+        //      alert window "date is too far away, etc"
+        //  }
+         
+ 
 })
+
+
+
+
+
 
 
 
