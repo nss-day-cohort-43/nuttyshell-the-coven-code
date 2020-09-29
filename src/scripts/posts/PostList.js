@@ -13,7 +13,8 @@ const eventHub = document.querySelector(".container")
 
 // When changes to posts occur, re-render notes
 eventHub.addEventListener("postStateChanged", e => {
-    listPosts();
+    const activeUser = parseInt(sessionStorage.getItem("activeUser"))
+    listPosts(activeUser);
 })
 
 // Listen for button clicks in Posts section
