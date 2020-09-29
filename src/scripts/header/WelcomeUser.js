@@ -9,10 +9,16 @@ export const WelcomeUser = (userId) => {
         const activeUsername = sessionStorage.getItem("username")
         // if this exists, put this message in the dom target
         if (activeUsername) {
-            welcomeTarget.innerHTML = `<div><h3>Witchy Salutations, ${activeUsername}!</h3></div>`;
+            welcomeTarget.innerHTML = `
+                <h3>Witchy Salutations, ${activeUsername}!</h3>
+                <button id="logoutBtn">Logout</button>
+            `;
         // otherwise put this in the dom
         } else {
-            welcomeTarget.innerHTML = `<div><h3>Welcome to Nutshell! May all your spells cast the first time!</h3></div>`
+            welcomeTarget.innerHTML = `
+                <h3>Welcome to Nutshell! May all your spells cast the first time!</h3>
+                <button id="logoutBtn">Logout</button>
+            `
         }
     }
     
@@ -24,7 +30,7 @@ export const WelcomeActiveUser = (userId) => {
         eventHub.addEventListener("click", e => {
             if (e.target.id === "login__button") {
                 const username = document.querySelector("#login__username").value;
-                welcomeTarget.innerHTML = `<div><h3>Witchy Salutations, ${username}!</h3></div>`;
+                welcomeTarget.innerHTML = `<h3>Witchy Salutations, ${username}!</h3><button id="logoutBtn">Logout</button>`;
             }
         })
     }
