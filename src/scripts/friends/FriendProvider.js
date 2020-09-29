@@ -22,7 +22,7 @@ export const getFriends = activeUser => {
 }
 
 export const saveNewFriend = (friendObj) => {
-    fetch("http://localhost:8088/friends", {
+    fetch("http://localhost:8088/friends/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -41,4 +41,14 @@ export const getUser = username => {
         let users = parsedUsers
         return users
     })
+}
+
+export const deleteFriend = (friendsId) => {
+    fetch(`http://localhost:8088/friends/${friendsId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(dispatchFriendStateChangeEvent)
 }

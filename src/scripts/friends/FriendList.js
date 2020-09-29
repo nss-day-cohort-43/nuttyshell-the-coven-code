@@ -12,6 +12,14 @@ eventHub.addEventListener("friendStateChanged", () => {
     listFriends(activeUser)
 })
 
+// Event Listener that closes the Add Friend section upon clicking the X
+friendsContainer.addEventListener("click", e => {
+    if(e.target.id === "closeAddFriend"){
+        const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+        listFriends(activeUser)
+    }
+})
+
 // eventHub listeners for add friend button click, delete button click
     eventHub.addEventListener("click", e => {
         if (e.target.id.startsWith("single__username--")) {
@@ -19,12 +27,15 @@ eventHub.addEventListener("friendStateChanged", () => {
             const parsedId = parseInt(id)
             const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
             const currentFriends = useFriends()
+            debugger
             if (activeUser !== parsedId) {
-                currentFriends.map(friend => {
-                    if (friend.user.id !== parsedId) {
-                        return console.log("NOT ON FRIENDS LIST")
-                    }
-                })
+                if (currentFriends !== null) {
+                    currentFriends.map(friend => {
+                        if (friend.user.id !== parsedId) {
+                            return console.log("NOT ON FRIENDS LIST")
+                        }
+                    })
+                }
             }
         }
     })

@@ -9,3 +9,12 @@
 #addFriend:hover {
     cursor: pointer;
 }
+
+#closeAddFriend {
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 8px;
+}
+#closeAddFriend:hover {
+    cursor: pointer;
+}
