@@ -1,3 +1,8 @@
+Wireframes:
+![Login Page](./READMEimages/LoginPage.png)
+![Main Page](./READMEimages/MainDashboard.png)
+![Form View](./READMEimages/FormFields.png)
+
 # Nutshell: The Information Dashboard
 
 ## Setup: Follow these steps exactly
