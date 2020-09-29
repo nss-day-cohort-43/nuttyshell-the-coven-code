@@ -1,5 +1,9 @@
 // Authored by Tristan Wyatt & Sam Edwards
 
+import { deleteFriend } from "./FriendProvider.js";
+
+const friendsContainer = document.querySelector(".friends")
+
 export const friendsHtmlFormat = (friendsArray) => {
     return `
     <h2 class="friendsHeader">Friends</h2></section>
@@ -15,3 +19,12 @@ export const friendsHtmlFormat = (friendsArray) => {
     }
     `
 }
+
+
+friendsContainer.addEventListener("click", e => {
+    const [prefix, id] = e.target.id.split("--")
+
+    if(e.target.id.startsWith("FriendDelete--")){
+        deleteFriend(id)
+    }
+})

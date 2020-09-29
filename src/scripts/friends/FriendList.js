@@ -26,3 +26,11 @@ const renderFriends = (friendsArray) => {
 eventHub.addEventListener("friendStateChanged", () => {
     listFriends(userId)
 })
+
+
+friendsContainer.addEventListener("click", e => {
+    if(e.target.id === "closeAddFriend"){
+        listFriends(userId)
+    }
+})
+
