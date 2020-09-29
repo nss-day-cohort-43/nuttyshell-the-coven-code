@@ -1,6 +1,7 @@
 import { listFriends } from "./FriendList.js"
 import { getUser, saveNewFriend } from "./FriendProvider.js"
 
+// Populates the friend container with an input field to add a new friend
  const addFriend = () => {
     return ` <label for="newFriend">Add Friend</label>
              <input type="text" name="newFriend" id="friendInput">
@@ -20,9 +21,10 @@ friendsContainer.addEventListener("click", e => {
 })
 }
  
-
 let userId = (parseInt(sessionStorage.getItem("activeUser")))
-
+// Event listener for adding a new friend, when the user enters a username
+// It will send that user to the database as a new friend relationship
+// and re render the friends list
 friendsContainer.addEventListener("click", e => {
     if(e.target.id === "addNewFriend"){
         const friendValue = document.querySelector("#friendInput")
