@@ -37,7 +37,7 @@ export const saveTaskEntry = (newTaskEntry) => {
 }
 
 export const completeTaskEntry = (completeTaskEntry) => {
-    return fetch(`http://localhost:8088/tasks/${completeTaskEntry.id}`, {
+    return fetch(`http://localhost:8088/tasks/${completeTaskEntry}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -48,8 +48,11 @@ export const completeTaskEntry = (completeTaskEntry) => {
 }
 
 export const deleteTaskEntry = (deletedTaskEntry) => {
-    return fetch(`http://localhost:8088/tasks/${deletedTaskEntry.id}`, {
-        method: "DELETE"
+    return fetch(`http://localhost:8088/tasks/${deletedTaskEntry}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
         .then(dispatchStateChangeEvent) 
 }

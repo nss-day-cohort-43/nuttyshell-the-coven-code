@@ -16,14 +16,14 @@ eventHub.addEventListener("click", clickEvent => {
                 "userId": parseInt(userId)
             }
             saveTaskEntry(newTask)
-            // .then(() => (useTasks()))
         }
     }
 })
 
 
 export const renderTaskForm = () => {
-    const form = `
+    return `
+        <div id="closeAddTasks">X</div>
         <form id="newTaskForm">
             <fieldset class="newTaskField">
                 <label for="taskName">Task</label> 
@@ -36,6 +36,4 @@ export const renderTaskForm = () => {
             <button type="button" id="saveTask">Save Task</button>
         </form>
         `
-
-        contentTarget.innerHTML = form
 }
