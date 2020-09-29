@@ -22,6 +22,7 @@ export const getFriends = activeUser => {
 }
 
 export const saveNewFriend = (friendObj) => {
+    const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
     fetch("http://localhost:8088/friends/", {
         method: "POST",
         headers: {
@@ -29,8 +30,7 @@ export const saveNewFriend = (friendObj) => {
         },
         body: JSON.stringify(friendObj)
     })
-    // MUST PASS IN ACTIVE USER
-    .then(getFriends())
+    .then(getFriends(activeUser))
     .then(dispatchFriendStateChangeEvent)
 }
 

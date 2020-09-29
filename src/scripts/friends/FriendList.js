@@ -63,5 +63,6 @@ const addFriendToList = (activeUser, friendUserId) => {
         myUserId: activeUser,
         userId: friendUserId
     }
+    debugger
     saveNewFriend(newFriend);
 }
