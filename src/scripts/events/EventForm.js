@@ -69,8 +69,7 @@ export const eventForm = () => {
             <fieldset>
             <label for="zipcode">Location Zip Code:</label>
             <input type="text" id="zipcode" name="zipcode">
-            </fieldset>
-            <br>   
+            </fieldset>  
             </form>        
             <button type="button" id="saveEvent">Save</button>
             <button type="button" id="cancelEvent">Cancel</button>

@@ -16,7 +16,6 @@ export const eventBoxHTML = (eventArray) => {
                 <button type="button" id=weather" value="${event.zip}--${event.date}">Weather</button>
                 <button type="button" id="deleteEvent" value="${event.id}">X</button>
                 <button type="button" id="editEvent" value="${event.id}">edit</button>
-                <br>
                 `
             }).join("")
         }
