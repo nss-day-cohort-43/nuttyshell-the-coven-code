@@ -1,9 +1,9 @@
 import { saveTaskEntry } from "./TaskDataProvider.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".tasks")
+const tasksContainer = document.querySelector(".tasks")
 
-eventHub.addEventListener("click", clickEvent => {
+tasksContainer.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "saveTask") {
         const taskInput = document.querySelector("#taskName")
         const dueDateInput = document.querySelector("#dueDate")

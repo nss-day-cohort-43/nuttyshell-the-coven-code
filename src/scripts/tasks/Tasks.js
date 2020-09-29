@@ -15,17 +15,17 @@ export const Tasks = () => {
     })
 }
 
-tasksContainer.addEventListener("click", e => {
-    if(e.target.id === "addTasks"){
+tasksContainer.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id === "addTasks"){
     tasksContainer.innerHTML = renderTaskForm()
-    } else if(e.target.id === "closeAddTasks"){
+    } else if(clickEvent.target.id === "closeAddTasks"){
         Tasks()
     }
 })
 
-tasksContainer.addEventListener("click", e => {
-    if(e.target.id.startsWith("delete--")){
-        const [prefix, id] = e.target.id.split("--")
+tasksContainer.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("delete--")){
+        const [prefix, id] = clickEvent.target.id.split("--")
         const taskToBeDeleted = parseInt(id)
         deleteTaskEntry(taskToBeDeleted)
     }
