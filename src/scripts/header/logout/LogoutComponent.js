@@ -1,7 +1,7 @@
 // Authored by Terra Roush
 
-import { LoginForm } from "../auth/LoginForm.js";
-import { RegisterForm } from "../auth/RegisterForm.js";
+import { LoginForm } from "../../auth/LoginForm.js";
+import { RegisterForm } from "../../auth/RegisterForm.js";
 
 const eventHub = document.querySelector(".container");
 const dashContainer = document.getElementById("dashContainer");
