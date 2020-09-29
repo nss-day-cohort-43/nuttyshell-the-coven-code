@@ -1,6 +1,5 @@
 // Authored by Tristan Wyatt & Sam Edwards & Terra Roush
 
-
 const eventHub = document.querySelector(".container")
 
 let friends = []
