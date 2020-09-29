@@ -6,6 +6,7 @@ import { listFriends } from "./friends/FriendList.js"
 import {  WelcomeUser, WelcomeActiveUser } from "./WelcomeUser.js"
 import { friend } from "./friends/FriendInput.js";
 
+
 export const Nutshell = (activeUser) => {
     // Render all your UI components here
     // Must convert activeUser from string to integer
@@ -17,6 +18,5 @@ export const Nutshell = (activeUser) => {
     EventList(parsedActiveUser);
     listPosts(parsedActiveUser);
     listFriends(parsedActiveUser);
+    friend();
 }
-
-friend()
