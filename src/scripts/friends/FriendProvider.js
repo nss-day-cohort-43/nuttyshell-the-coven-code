@@ -7,6 +7,7 @@ let friends = []
 
 const dispatchFriendStateChangeEvent = () => {
     const friendChangedEvent = new CustomEvent("friendStateChanged");
+    // Store our friends in a detail to be used later
     eventHub.dispatchEvent(friendChangedEvent);
 }
 
@@ -29,6 +30,7 @@ export const saveNewFriend = (friendObj) => {
         },
         body: JSON.stringify(friendObj)
     })
+    .then(getFriends)
     .then(dispatchFriendStateChangeEvent)
 }
 
