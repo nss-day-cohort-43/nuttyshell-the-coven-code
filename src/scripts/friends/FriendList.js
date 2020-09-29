@@ -21,18 +21,10 @@ eventHub.addEventListener("friendStateChanged", () => {
             const currentFriends = useFriends()
             if (activeUser !== parsedId) {
                 currentFriends.map(friend => {
-                    if (friend.user.id === parsedId) {
-                        return  console.log("ON FRIENDS LIST")
-                    } else {
+                    if (friend.user.id !== parsedId) {
                         return console.log("NOT ON FRIENDS LIST")
                     }
                 })
- 
-                // OR we just use useFriends, which would mean a saveFriend event needs to getFriends
-
-                // Check if you are or not on my friend's list.
-                // Get all my friends, and check to see if the parsedId
-                // shows up at all for my activeUser's friends
             }
         }
     })

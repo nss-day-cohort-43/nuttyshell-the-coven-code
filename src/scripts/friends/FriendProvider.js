@@ -29,7 +29,8 @@ export const saveNewFriend = (friendObj) => {
         },
         body: JSON.stringify(friendObj)
     })
-    .then(getFriends)
+    // MUST PASS IN ACTIVE USER
+    .then(getFriends())
     .then(dispatchFriendStateChangeEvent)
 }
 
