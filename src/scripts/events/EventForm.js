@@ -49,7 +49,8 @@ eventContainer.addEventListener("click", clickEvent => {
 
 export const eventForm = () => {
     return  eventContainer.innerHTML =     
-    `<form action="">
+    `<div id="cancelEvent">X</div>
+    <form action="">
             <fieldset>
                 <label for="event">Name of Event:</label>
                 <input type="text" id="name" name="name">
@@ -72,7 +73,6 @@ export const eventForm = () => {
             </fieldset>  
             </form>        
             <button type="button" id="saveEvent">Save</button>
-            <button type="button" id="cancelEvent">Cancel</button>
         `
     
 }

@@ -1,8 +1,16 @@
 @import "auth.css";
 @import "dashboard.css";
 @import "dashboard/news.css";
+@import "dashboard/events.css";
 @import "dashboard/friends.css";
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-family: 'Alegreya', serif;
+}
 
 /* unvisited link */
 a:link {

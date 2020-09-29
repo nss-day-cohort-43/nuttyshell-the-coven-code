@@ -1,0 +1,26 @@
+.events {
+    position: relative;
+    height: 18.75rem;
+    overflow: auto;
+}
+.eventHeader {
+    margin-left: 10px;
+}
+#addEvent {
+    font-size: 2em;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    top: -4.0625rem;
+    right: 0.625rem;
+}
+
+#addEvent:hover {
+    cursor: pointer;
+}
+
+#cancelEvent {
+    text-align: right;
+    font-family: 'Nunito', sans-serif;
+
+}

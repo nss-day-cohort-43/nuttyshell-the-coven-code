@@ -7,17 +7,17 @@ const welcomeTarget = document.querySelector(".dash--header")
 const activeUsername = sessionStorage.getItem("username")
 // if this exists, put this message in the dom target
 if (activeUsername) {
-    welcomeTarget.innerHTML = `<h3>Witchy Salutations, ${activeUsername}!</h3>`;
+    welcomeTarget.innerHTML = `<h2>Witchy Salutations, ${activeUsername}!</h2>`;
     // otherwise put this in the dom
 } else {
-    welcomeTarget.innerHTML = `<h3>Welcome to Nutshell! May all your spells cast the first time!</h3>`
+    welcomeTarget.innerHTML = `<h2>Welcome to Nutshell! May all your spells cast the first time!</h2>`
 }
 
 // this event listens for a login button click. when clicked, take the value of the username entered and add it to the message meant for the dom target
 eventHub.addEventListener("click", e => {
     if (e.target.id === "login__button") {
         const username = document.querySelector("#login__username").value;
-        welcomeTarget.innerHTML = `<h3>Witchy Salutations, ${username}!</h3>`;
+        welcomeTarget.innerHTML = `<h2>Witchy Salutations, ${username}!</h2>`;
     }
 })
 

@@ -3,7 +3,7 @@
 // HTML for event box with add event, delete, edit and weather buttons
 export const eventBoxHTML = (eventArray) => {
     return `
-        <h2>Events</h2>
+        <h2 class="eventHeader">Events</h2>
         <div id="addEvent">+</div>
         <br>
         ${

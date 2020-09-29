@@ -29,6 +29,8 @@
 }
 #closeNewArticle {
     text-align: right;
+    font-family: 'Nunito', sans-serif;
+
 }
 #closeNewArticle:hover {
     cursor: pointer;
@@ -52,22 +54,22 @@
     cursor: pointer;
 }
 
-.newsEntryForm {
+/* .newsEntryForm {
     display: flex;
     height: 18.75rem;
-}
+} */
 
-.newsEntryForm label {
+/* .newsEntryForm label { */
     /* text-align: center; */
     /* font-weight: bolder; */
-}
-.newsEntryForm input {
+/* } */
+/* .newsEntryForm input { */
     /* display: flex;
     flex-wrap: wrap;
     /* width: 21.875rem; */
     /* text-align: center; */
     /* margin: 1.25rem auto; */
-}
+/* }
 #newsSave {
  margin: auto;
-}
+} */

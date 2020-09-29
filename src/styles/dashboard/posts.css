@@ -1,5 +1,9 @@
 /* The script that sets the scroll bar is based on the .post__list height value.
 To ensure scroll bar works correctly, I *think* we have to set a specific height value on .post__list. */
+.postHeader {
+    margin-left: 10px;
+}
+
 
 .post__list {
     background-color: lightblue;
