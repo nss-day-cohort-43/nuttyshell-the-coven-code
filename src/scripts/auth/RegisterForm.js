@@ -43,7 +43,7 @@ eventHub.addEventListener("click", (e) => {
                 body: JSON.stringify({
                   username: username,
                   email: email,
-                  zipcode: zipcode,
+                  zipcode: parseInt(zipcode),
                 }),
               })
                 .then((response) => response.json())
