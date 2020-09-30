@@ -1,0 +1,18 @@
+#addTasks {
+    font-size: 2em;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    top: -4.0625rem;
+    right: 0.625rem;
+}
+
+#closeAddTasks {
+    text-align: right;
+}
+
+.tasks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
