@@ -8,8 +8,7 @@ const newsContainer = document.querySelector(".news")
 export const newsHtmlFormat = (newsArticle) => {
     sorting(newsArticle)
     return `
-    <h2 class="newsHeader">News</h2></section>
-        <div id="addNews" title="Add New">+</div>
+    <h2 class="newsHeader">News</h2></section><div id="addNews" title="Add New">+</div>
         ${newsArticle.map(news => {
          return `
            <div id="article--${news.id}" class="articleContainer"> 
