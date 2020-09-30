@@ -37,6 +37,8 @@ friendsContainer.addEventListener("click", e => {
             const friendsList = friends.find(a => a.user.username === friendValue.value)
     
             if(friendsList === undefined){
+                const addFriend = confirm(`Would you like to add ${friendValue.value} as a friend?`)
+                if(addFriend){
                 getUser(friendValue.value)
                 .then(user => {
                 const newFriend = {
@@ -45,13 +47,11 @@ friendsContainer.addEventListener("click", e => {
         }
         saveNewFriend(newFriend)
             }  
-
-        )} else {
+        )}} else {
+            alert("User already a friend!")
             listFriends(parseInt(sessionStorage.getItem("activeUser")))
         }
     }
 }})
 
-// const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
-// getFriends(activeUser)
 
