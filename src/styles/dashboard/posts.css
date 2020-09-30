@@ -6,7 +6,7 @@ To ensure scroll bar works correctly, I *think* we have to set a specific height
 
 
 .post__list {
-    background-color: lightblue;
+    background-color: #314650;
     padding: 5px;
     height: 200px;
     /* I set the overflow only on the Y axis, because I didn't want
@@ -15,7 +15,7 @@ To ensure scroll bar works correctly, I *think* we have to set a specific height
 }
 
 .post__single {
-    background-color: lavender;
+    background-color: #446270;
     width: 80%;
     margin: 5px 0 0 5px;
     padding-bottom: 5px;
@@ -23,11 +23,11 @@ To ensure scroll bar works correctly, I *think* we have to set a specific height
 
 /* Test to differentiate active user's posts from non-active */
 .single__active {
-    background-color: orange;
+    background-color: #bb7615;
 }
 
 .post__new {
     display: flex;
     flex-flow: column wrap;
-    background-color: lightcoral;
+    background-color: #44616f;
 }
