@@ -11,7 +11,7 @@ export const WelcomeUser = (userId) => {
         if (activeUsername) {
             welcomeTarget.innerHTML = `
             <div class="fullLogoContainer">
-            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+            <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
             
             </div>
                 <h2>Witchy Salutations, ${activeUsername}!</h2>
@@ -21,7 +21,7 @@ export const WelcomeUser = (userId) => {
         } else {
             welcomeTarget.innerHTML = `
             <div class="fullLogoContainer">
-            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+            <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
             </div>
                 <h2>Welcome to Nutshell! May all your spells cast the first time!</h2>
                 <button id="logoutBtn">Logout</button>
@@ -39,7 +39,7 @@ export const WelcomeActiveUser = (userId) => {
                 const username = document.querySelector("#login__username").value;
                 welcomeTarget.innerHTML = 
                     `   <div class="fullLogoContainer">
-                            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+                            <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
                         </div>
                         <h2>Witchy Salutations, ${username}!</h2><button id="logoutBtn">Logout</button>`;
             }
