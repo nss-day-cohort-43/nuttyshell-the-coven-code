@@ -16,7 +16,7 @@ export const allTheNews = () => {
         let friends = useFriends()
         let news = useNews()
         let userNews = news.filter(news => {
-           return news.userId === activeUser || friends.filter(friend => friend.userId)
+           return news.userId === activeUser
         })
         let newsHtml = newsHtmlFormat(userNews)
         renderNews(newsHtml)
