@@ -7,6 +7,9 @@ import { WelcomeUser } from "./authHeader/WelcomeUser.js";
 import { authHeaderRender } from "./authHeader/authHeader.js";
 import { saveEvent } from "./events/EventDataProvider.js"
 
+
+
+
 /*
 1. Check if the user is authenticated by looking in session storage for `activeUser`
 2. If so, render the Nutshell component

@@ -20,7 +20,6 @@ export const friendsHtmlFormat = (friendsArray) => {
     `
 }
 
-
 friendsContainer.addEventListener("click", e => {
     if(e.target.id.startsWith("FriendDelete--")){
         const [prefix, id] = e.target.id.split("--")

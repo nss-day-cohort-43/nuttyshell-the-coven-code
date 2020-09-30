@@ -26,8 +26,8 @@ export const postBoxHTML = (activeUser, postArray) => {
                         <p id="postId--${post.id}" class="post__single single__active">
                             ${username}
                             ${checkDate(post)}
-                            <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">EDIT BTN</button>
-                            <button id="post__btnDelete--${post.id}" type="button">DELETE BTN</button>
+                            <span class="single__post">${post.post}</span> <button id="post__btnEdit--${post.id}" type="button">✎</button>
+                            <button id="post__btnDelete--${post.id}" type="button">✘</button>
                         </p>
                         `
                     } else {
