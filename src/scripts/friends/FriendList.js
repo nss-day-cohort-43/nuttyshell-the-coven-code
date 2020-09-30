@@ -2,6 +2,7 @@
 
 import { getFriends, saveNewFriend, useFriends } from "./FriendProvider.js"
 import { friendsHtmlFormat } from "./FriendsHTML.js"
+import { allTheNews } from "../News/News.js"
 
 const eventHub = document.querySelector(".container")
 const friendsContainer = document.querySelector(".friends")
@@ -11,6 +12,7 @@ eventHub.addEventListener("friendStateChanged", () => {
     const activeUser = (parseInt(sessionStorage.getItem("activeUser"))) 
     listFriends(activeUser)
 })
+
 
 // Event Listener that closes the Add Friend section upon clicking the X
 friendsContainer.addEventListener("click", e => {

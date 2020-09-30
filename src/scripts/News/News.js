@@ -3,20 +3,27 @@ import { useNews, getNews, deleteNewsEntry } from "./NewsDataProvider.js";
 import { newsHtmlFormat } from "./NewsHTML.js";
 import { newNewsArticle } from "./NewsInput.js";
 import { renderNews } from "./NewsRender.js";
+import { getFriends, useFriends } from "../friends/FriendProvider.js"
 
 const newsContainer = document.querySelector(".news")
 
+const activeUser = parseInt(sessionStorage.getItem("activeUser"));
 // Renders all the news to the News container innerHTML based on the activeUser signed in
-export const allTheNews = async() => {
-    await getNews()
+export const allTheNews = () => {
+    getFriends()
+    getNews()
     .then(() => {
+        let friends = useFriends()
         let news = useNews()
-        let userNews = news.filter(news => news.userId === parseInt(sessionStorage.getItem("activeUser")))
-       
+        let userNews = news.filter(news => {
+           return news.userId === activeUser
+        })
         let newsHtml = newsHtmlFormat(userNews)
         renderNews(newsHtml)
     })
 }
+
+
 
 
 // Click event that targets the Plus Sign of News container 

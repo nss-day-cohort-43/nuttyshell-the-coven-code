@@ -8,6 +8,7 @@ import {  WelcomeUser, WelcomeActiveUser } from "./authHeader/WelcomeUser.js"
 import { friend } from "./friends/FriendInput.js";
 
 
+
 export const Nutshell = (activeUser) => {
     // Render all your UI components here
     // Must convert activeUser from string to integer
