@@ -19,8 +19,21 @@
     cursor: pointer;
 }
 
+.singleEvent {
+    background-color: #446270;   
+    margin: 3px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
 #cancelEvent {
     text-align: right;
     font-family: 'Nunito', sans-serif;
 
+}
+
+.edit,
+.delete {
+    margin-left: 5px;
+    cursor: pointer;
 }
