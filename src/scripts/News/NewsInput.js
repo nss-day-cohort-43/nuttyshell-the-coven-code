@@ -6,20 +6,25 @@ const newsContainer = document.querySelector(".news");
 // Displays the Input format for entering new article information
 // and a Save button
 export const newNewsArticle = () => {
-return  `  <fieldset class="newsEntryForm">
+return  `  <form class="newsEntryForm">
                 <div id="closeNewArticle">X</div>
-                <label for="newsTitle">Title</label>
-                <input type="text" name="newsTitle" id="newsTitle">
+                <fieldset>
+                <label for="newsTitle">Title:</label>
+                <input type="text" style='width:15em' name="newsTitle" id="newsTitle">
+                </fieldset>
 
+                <fieldset>
+                <label for="newsUrl">Link:</label>
+                <input type="text" style='width:15em' name="newsUrl" id="newsUrl" value="https://">
+                </fieldset>
 
-                <label for="newsUrl">Link</label>
-                <input type="text" name="newsUrl" id="newsUrl" value="https://">
+                <fieldset>
+                <label for="newsDescription">About:</label>
+                <input type="text" style='width:15em' name="newsDescription" id="newsDescription">
+                </fieldset>
 
-
-                <label for="newsDescription">About</label>
-                <input type="text" name="newsDescription" id="newsDescription">
                 <button id="newsSave">Save</button>
-            </fieldset>
+            </form>
         `
 }
 
