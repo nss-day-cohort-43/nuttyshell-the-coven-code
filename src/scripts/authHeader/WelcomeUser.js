@@ -14,7 +14,7 @@ export const WelcomeUser = (userId) => {
             <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
             
             </div>
-                <h2>Witchy Salutations, ${activeUsername}!</h2>
+                <h1>Witchy Salutations, ${activeUsername}!</h1>
                 <button id="logoutBtn">Logout</button>
             `;
         // otherwise put this in the dom
@@ -23,7 +23,7 @@ export const WelcomeUser = (userId) => {
             <div class="fullLogoContainer">
             <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
             </div>
-                <h2>Welcome to Nutshell! May all your spells cast the first time!</h2>
+                <h1>Welcome to Nutshell! May all your spells cast the first time!</h1>
                 <button id="logoutBtn">Logout</button>
             `
         }
@@ -41,7 +41,7 @@ export const WelcomeActiveUser = (userId) => {
                     `   <div class="fullLogoContainer">
                             <img class="fullLogo" src="./images/The_Coven_Code_Ball_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
                         </div>
-                        <h2>Witchy Salutations, ${username}!</h2><button id="logoutBtn">Logout</button>`;
+                        <h1>Witchy Salutations, ${username}!</h1><button id="logoutBtn">Logout</button>`;
             }
         })
     }
