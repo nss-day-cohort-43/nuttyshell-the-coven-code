@@ -19,7 +19,7 @@ export const postBoxHTML = (activeUser, postArray) => {
             ${
                 postArray.map(post => {
                     // Check to ensure user is actually still registered, if not, don't render their posts
-                    if (post.user.id !== null) {
+                    if (post.user.id !== undefined) {
                         // To reduce repeated strings, store username in variable
                         const username = `<span id="single__username--${post.user.id}"class="single__username">${post.user.username}</span>`
                         
@@ -41,7 +41,9 @@ export const postBoxHTML = (activeUser, postArray) => {
                         </p>
                         `
                     }
-                }}).join("")
+                }
+                return `<p></p>`
+            }).join("")
             }
             </div>`
         }
