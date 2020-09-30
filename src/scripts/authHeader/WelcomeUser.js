@@ -10,12 +10,19 @@ export const WelcomeUser = (userId) => {
         // if this exists, put this message in the dom target
         if (activeUsername) {
             welcomeTarget.innerHTML = `
+            <div class="fullLogoContainer">
+            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+            
+            </div>
                 <h2>Witchy Salutations, ${activeUsername}!</h2>
                 <button id="logoutBtn">Logout</button>
             `;
         // otherwise put this in the dom
         } else {
             welcomeTarget.innerHTML = `
+            <div class="fullLogoContainer">
+            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+            </div>
                 <h2>Welcome to Nutshell! May all your spells cast the first time!</h2>
                 <button id="logoutBtn">Logout</button>
             `
@@ -30,7 +37,11 @@ export const WelcomeActiveUser = (userId) => {
         eventHub.addEventListener("click", e => {
             if (e.target.id === "login__button") {
                 const username = document.querySelector("#login__username").value;
-                welcomeTarget.innerHTML = `<h2>Witchy Salutations, ${username}!</h2><button id="logoutBtn">Logout</button>`;
+                welcomeTarget.innerHTML = 
+                    `   <div class="fullLogoContainer">
+                            <img class="fullLogo" src="./images/The_Coven_Code_Blue_200x200.png" alt="Black blended to Brown blended to blue crystal ball">
+                        </div>
+                        <h2>Witchy Salutations, ${username}!</h2><button id="logoutBtn">Logout</button>`;
             }
         })
     }

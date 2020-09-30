@@ -15,13 +15,23 @@
 
 .dash--header {
     grid-area: header;
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #314650;
     margin: 1em, 1em, .25em, 1em;
     height: 7.8125rem;
+    padding: 1em;
 }
-
+.fullLogoContainer {
+    background-color: white;
+    height: 7.8125rem;
+}
+.fullLogo {
+    height: auto;
+    width: auto;
+    max-height: 7.7rem;
+}
 
 .tasks {
     grid-area: tasks;

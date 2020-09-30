@@ -12,7 +12,7 @@ export const eventBoxHTML = (eventArray) => {
                 <div>Event: ${event.name}</div>
                 <div>Date: ${event.date}, ${event.time}</div>
                 <div>Location: ${event.locationName}</div>
-                <button type="button" class="edit" id="editEvent" value="${event.id}">✎</button><button class="delete" type="button" id="deleteEvent" value="${event.id}">✘</button>
+                <button class="delete" type="button" id="deleteEvent" value="${event.id}">✘</button>
                 </div>
                 `
             }).join("")
@@ -21,4 +21,5 @@ export const eventBoxHTML = (eventArray) => {
 }
 
 // For version2: add button to html above
+/* <button type="button" class="edit" id="editEvent" value="${event.id}">✎</button> */
  // <button type="button" id=weather" value="${event.zip}--${event.date}">Weather</button>
