@@ -11,8 +11,8 @@ export const friendsHtmlFormat = (friendsArray) => {
         ${friendsArray.map(friend => {
          return `
            <div id="friend--${friend.id}" class="friendContainer"> 
-            <p class="friendName">${friend.user.username}</p>
-            <button id="FriendDelete--${friend.id}" class="FriendDelete" title="FriendDelete">✘</button>
+            <span class="friendName">${friend.user.username}</span>
+            <button id="FriendDelete--${friend.id}" class="FriendDelete" title="FriendDelete">    ✘</button>
            </div> 
             `
         }).join("")

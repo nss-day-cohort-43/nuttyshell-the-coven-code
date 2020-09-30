@@ -8,6 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+h1,
 h2 {
     font-family: 'Alegreya', serif;
 }
@@ -30,6 +31,7 @@ a:hover {
 
 footer {
     text-align: center;
+    color: #314650;
 }
 
 
