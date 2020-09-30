@@ -353,3 +353,5 @@ Nutshell/Halloween Edition is a dashboard for ~~people~~ witches to organize the
 * Sam Edwards
 * Terra Roush
 
+## A Note About Authentication
+We want you to know that the login and registration code is fake, completely insecure, and would never be implemented in a professional application. It is a simulation authentication using very simplistic tools, because authentication is not a learning objective of students at NSS.
