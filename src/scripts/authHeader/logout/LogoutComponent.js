@@ -1,7 +1,7 @@
 // Authored by Terra Roush
 
-import { LoginForm } from "../auth/LoginForm.js";
-import { RegisterForm } from "../auth/RegisterForm.js";
+import { LoginForm } from "../../auth/LoginForm.js";
+import { RegisterForm } from "../../auth/RegisterForm.js";
 
 const eventHub = document.querySelector(".container");
 const dashContainer = document.getElementById("dashContainer");
@@ -21,10 +21,5 @@ eventHub.addEventListener("click", e => {
 // defines a variable to target the header of dashboard
 const logoutTarget = document.querySelector(".dash--header");
 
-// function that creates logout button on dashboard
-export const RenderLogout = (userId) => {
-  // if there is an active user, then render this button
-  if (userId)
-    logoutTarget.innerHTML += 
-      `<div><button id="logoutBtn">Logout</button></div>`
-}
+// connects logout to Nutshell
+export const RenderLogout = (userId) => {}

@@ -1,5 +1,6 @@
 // Authored by Tristan Wyatt
-import { getUser, saveNewFriend } from "./FriendProvider.js"
+import { useFriends, getUser, saveNewFriend } from "./FriendProvider.js"
+import { listFriends } from "./FriendList.js";
 
 const friendsContainer = document.querySelector(".friends")
 
@@ -27,15 +28,30 @@ friendsContainer.addEventListener("click", e => {
 // It will send that user to the database as a new friend relationship
 // and re render the friends list
 friendsContainer.addEventListener("click", e => {
+    const friendValue = document.querySelector("#friendInput")
+ 
     if(e.target.id === "addNewFriend"){
-        const friendValue = document.querySelector("#friendInput")
-        getUser(friendValue.value)
-        .then(user => {
-        const newFriend = {
-            myUserId: parseInt(sessionStorage.getItem("activeUser")),
-            userId: parseInt(user.map(user => user.id).join(""))
+        const friends = useFriends()
+        if(friendValue.value !== ""){
+           
+            const friendsList = friends.find(a => a.user.username === friendValue.value)
+    
+            if(friendsList === undefined){
+                getUser(friendValue.value)
+                .then(user => {
+                const newFriend = {
+                myUserId: parseInt(sessionStorage.getItem("activeUser")),
+                userId: parseInt(user.map(user => user.id).join(""))
         }
         saveNewFriend(newFriend)
-    })
-}
-})
+            }  
+
+        )} else {
+            listFriends(parseInt(sessionStorage.getItem("activeUser")))
+        }
+    }
+}})
+
+// const activeUser = (parseInt(sessionStorage.getItem("activeUser")))
+// getFriends(activeUser)
+
