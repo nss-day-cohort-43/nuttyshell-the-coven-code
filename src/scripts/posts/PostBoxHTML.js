@@ -14,7 +14,7 @@ export const checkDate = (post) => {
     // Also allows for activeUsers to have unique styling.
 export const postBoxHTML = (activeUser, postArray) => {
     return `
-        <h2>Posts</h2>
+        <h2 class="postHeader">Posts</h2>
         <div class="post__list">
             ${
                 postArray.map(post => {

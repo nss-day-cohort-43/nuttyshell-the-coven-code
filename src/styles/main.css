@@ -1,7 +1,32 @@
 @import "auth.css";
 @import "dashboard.css";
 @import "dashboard/news.css";
+@import "dashboard/events.css";
 @import "dashboard/friends.css";
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-family: 'Alegreya', serif;
+}
+
+/* unvisited link */
+a:link {
+    color: #bb7615;
+  }
+  
+/* visited link */
+a:visited {
+    color: #6d93a6;
+;
+  }
+  
+/* mouse over link */
+a:hover {
+    color: #b8cad3;
+  }
 
 footer {
     text-align: center;
