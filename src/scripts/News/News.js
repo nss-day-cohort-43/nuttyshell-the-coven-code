@@ -6,18 +6,18 @@ import { renderNews } from "./NewsRender.js";
 
 const newsContainer = document.querySelector(".news")
 
-
 // Renders all the news to the News container innerHTML based on the activeUser signed in
-export const allTheNews = () => {
-    getNews()
+export const allTheNews = async() => {
+    await getNews()
     .then(() => {
         let news = useNews()
         let userNews = news.filter(news => news.userId === parseInt(sessionStorage.getItem("activeUser")))
-     
+       
         let newsHtml = newsHtmlFormat(userNews)
         renderNews(newsHtml)
     })
 }
+
 
 // Click event that targets the Plus Sign of News container 
 // and sets that container for new input, but if container is on the input
