@@ -13,6 +13,9 @@
 #addFriend:hover {
     cursor: pointer;
 }
+.friendContainer {
+    padding: 2em;
+}
 
 #closeAddFriend {
     text-align: right;
