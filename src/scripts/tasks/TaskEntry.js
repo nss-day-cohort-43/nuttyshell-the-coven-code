@@ -27,9 +27,9 @@ export const taskEntry = task => {
     return `
         <li id="task--${task.id}" class="taskEntry">
             ${checkCheckBox(task, task.complete)}
-            <div id="taskName--${task.id}" value="${task.name}">${task.name}</div>
-            <div id="dueDate--${task.id}" value="${task.dueDate}">Due Date: ${task.dueDate}</div> 
-            <button class="delete" title="Delete" id="delete--${task.id}">✘</button>
+            <span class="taskName" id="taskName--${task.id}">${task.name}</span> 
+            <span class="dueDate" id="dueDate--${task.id}">Due Date: ${task.dueDate}
+            <button class="delete" title="Delete" id="delete--${task.id}">✘</button></span> 
         </li>
     `
 }
