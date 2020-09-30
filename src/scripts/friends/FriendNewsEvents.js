@@ -1,3 +1,4 @@
+// Author Tristan Wyatt
 import { eventBoxHTML } from "../events/EventHTML.js"
 import { getFriends, useFriends } from "./FriendProvider.js";
 
